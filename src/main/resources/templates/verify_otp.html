@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit4Life</title>
+    <link rel="icon" href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset_password.css"> <!-- Use reset_password.css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+       
+        <div class="form-box">
+            <div class="logo">
+                <i class='bx bx-pencil'></i>
+                <span class="text">Fit4Life</span>
+            </div>
+            <p class="side-big-heading">Verify OTP</p>
+            <p class="primary-bg-text">Enter the OTP we sent to your email to reset your password.</p>
+
+            <form id="verifyOtpForm" method="post" action="/verify-otp">
+                <!-- Display session message if exists -->
+                <div th:if="${message}" class="container">
+                    <div class="alert alert-danger my-2 text-center" role="alert">
+                        <span th:text="${message}"></span>
+                    </div>
+                </div>
+
+                <div class="text-fields otp">
+                    <label for="otp"><i class='bx bx-key'></i></label>
+                    <input type="text" name="otp" id="otp" placeholder="Enter your OTP" maxlength="6" required>
+                </div>
+                <input type="submit" value="Verify OTP" class="nextPage">
+            </form>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

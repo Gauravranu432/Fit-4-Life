@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Fit4Life</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"/>
+    <link rel="icon" href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" type="image/x-icon"/>
+
+    <!-- Fonts and icons -->
+    <script src="Admin/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["Admin/assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <style>
+      .highlight-label{
+        font-weight: bold;
+      }
+      
+    </style>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="Admin/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="Admin/assets/css/plugins.min.css"/>
+    <link rel="stylesheet" href="Admin/assets/css/kaiadmin.min.css"/>
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="Admin/assets/css/demo.css"/>
+  </head>
+  <body>
+      
+<!--    Form section  -->
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header">
+      <ul class="breadcrumbs mb-3">
+      </ul>
+  	   </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Update User Data</div>
+                </div>
+                <div class="card-body">
+			<form id="updateUserForm" action="/users/update" method="post">
+			  <div class="row">
+			    <!-- First Name -->
+			    <div class="col-md-6">
+			      <div class="mb-3">
+			        <label for="fname" class="form-label highlight-label">First Name</label>
+			        <input type="text" class="form-control" id="fname" name="fname" th:value="${user.fname}" placeholder="Enter your first name" />
+			        <small id="firstNameError" class="form-text text-danger"></small>
+			      </div>
+			    </div>
+			    <!-- Last Name -->
+			    <div class="col-md-6">
+			      <div class="mb-3">
+			        <label for="lname" class="form-label highlight-label">Last Name</label>
+			        <input type="text" class="form-control" id="lname" name="lname" th:value="${user.lname}" placeholder="Enter your last name" />
+			        <small id="lastNameError" class="form-text text-danger"></small>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="row">
+			    <!-- Date of Birth -->
+			    <div class="col-md-6">
+			      <div class="mb-3">
+			        <label for="dob" class="form-label highlight-label">Date of Birth</label>
+			        <input type="date" class="form-control" id="dob" name="dob" th:value="${user.dob}" />
+			        <small id="dobError" class="form-text text-danger"></small>
+			      </div>
+			    </div>
+			    <!-- Gender -->
+			    <div class="col-md-6">
+			      <div class="mb-3">
+			        <label for="gender" class="form-label highlight-label">Gender</label>
+			        <select class="form-control" id="gender" name="gender" th:value="${user.gender}">
+			          <option value="" disabled>Select your gender</option>
+			          <option value="male">Male</option>
+			          <option value="female">Female</option>
+			          <option value="other">Other</option>
+			        </select>
+			        <small id="genderError" class="form-text text-danger"></small>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="row">
+			    <!-- Phone Number -->
+			    <div class="col-md-6">
+			      <div class="mb-3">
+			        <label for="phone" class="form-label highlight-label">Phone Number</label>
+			        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" th:value="${user.phone}" />
+			        <small id="phoneNumberError" class="form-text text-danger"></small>
+			      </div>
+			    </div>
+			    <!-- Email -->
+			    <div class="col-md-6">
+			      <div class="mb-3">
+			        <label for="email" class="form-label highlight-label">Email</label>
+			        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"  th:value="${user.email}"/>
+			        <small id="emailError" class="form-text text-danger"></small>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="d-flex justify-content-center mt-3">
+			    <button type="button" class="btn btn-success me-2" onclick="updateUser()">Update</button>
+			    <a href="data" class="btn btn-danger">Cancel</a>
+			  </div>
+			</form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <!--   Core JS Files   -->
+    <script src="Admin/assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="Admin/assets/js/core/popper.min.js"></script>
+    <script src="Admin/assets/js/core/bootstrap.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="Admin/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    
+    <script>
+      const form = document.getElementById('add-user-form');
+    
+      form.addEventListener('submit', function(event) {
+        let isValid = true;
+    
+        // Validate First Name
+        const firstName = document.getElementById('fname');
+        const firstNameError = document.getElementById('firstNameError');
+        if (firstName.value.trim() === '') {
+          firstNameError.textContent = 'First name is required.';
+          isValid = false;
+        } else {
+          firstNameError.textContent = '';
+        }
+    
+        // Validate Last Name
+        const lastName = document.getElementById('lname');
+        const lastNameError = document.getElementById('lastNameError');
+        if (lastName.value.trim() === '') {
+          lastNameError.textContent = 'Last name is required.';
+          isValid = false;
+        } else {
+          lastNameError.textContent = '';
+        }
+    
+        // Validate Date of Birth
+        const dob = document.getElementById('dob');
+        const dobError = document.getElementById('dobError');
+        if (dob.value === '') {
+          dobError.textContent = 'Date of birth is required.';
+          isValid = false;
+        } else {
+          dobError.textContent = '';
+        }
+    
+        // Validate Gender
+        const gender = document.getElementById('gender');
+        const genderError = document.getElementById('genderError');
+        if (gender.value === '') {
+          genderError.textContent = 'Gender selection is required.';
+          isValid = false;
+        } else {
+          genderError.textContent = '';
+        }
+    
+        // Validate Phone Number
+        const phoneNumber = document.getElementById('phone');
+        const phoneNumberError = document.getElementById('phoneNumberError');
+        const phonePattern = /^[0-9]{10}$/;
+        if (!phonePattern.test(phoneNumber.value)) {
+          phoneNumberError.textContent = 'Please enter a valid 10-digit phone number.';
+          isValid = false;
+        } else {
+          phoneNumberError.textContent = '';
+        }
+    
+        // Validate Email
+        const email = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email.value)) {
+          emailError.textContent = 'Please enter a valid email address.';
+          isValid = false;
+        } else {
+          emailError.textContent = '';
+        }
+    
+        // Validate Password
+        const password = document.getElementById('password');
+        const passwordError = document.getElementById('passwordError');
+        if (password.value.trim() === '') {
+          passwordError.textContent = 'Password is required.';
+          isValid = false;
+        } else {
+          passwordError.textContent = '';
+        }
+    
+        // Validate Confirm Password
+        const confirmPassword = document.getElementById('confirmPassword');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+        if (confirmPassword.value !== password.value) {
+          confirmPasswordError.textContent = 'Passwords do not match.';
+          isValid = false;
+        } else {
+          confirmPasswordError.textContent = '';
+        }
+    
+      });
+    </script>
+  </body>
+</html>

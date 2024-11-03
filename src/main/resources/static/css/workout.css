@@ -1,0 +1,779 @@
+/* Section Selector */
+.section-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.section-selector button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-size: 1rem; /* Adjust font size if needed */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.section-selector button.active {
+    background-color: #ff7300;
+    color: #fff;
+}
+
+/* Workout Container */
+#beginner-workout {
+    position: relative;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+#intermediate-workout {
+    position: relative;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+#advanced-workout {
+    position: relative;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+.workout-container {
+    display: none;
+}
+
+.workout-container.active {
+    display: block;
+}
+/* Styling for h3 with background */
+.workout-container  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff; /* White text color */
+    background-color: #ff7300; /* Background color */
+    padding: 10px; /* Padding around text */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 1rem;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+/* Styling for h4 with border */
+.workout-container  h4 {
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: #333;
+    border-bottom: 2px solid #ff7300; /* Bottom border */
+    padding-bottom: 5px; /* Padding below text */
+    margin-bottom: 0.5rem;
+    text-align: center;
+    transition: border-color 0.3s, color 0.3s; /* Smooth transitions */
+}
+
+/* Hover effects */
+.workout-container h3:hover {
+    background-color: #ff5722; /* Change background color on hover */
+    color: #fff; /* Ensure text remains readable */
+}
+
+.workout-container h4:hover {
+    border-color: #ff5722; /* Change border color on hover */
+    color: #ff5722; /* Change text color on hover */
+}
+
+/* Video Section */
+.video-section {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/* Video Container */
+.video-section .video-container {
+    display: inline-block;
+    width: 300px;
+    padding: 20px;
+    position: relative;
+    transition: transform 0.3s; /* Smooth transition for moving up */
+}
+
+/* Video Element */
+.video-container video {
+    width: 100%;
+    display: block; /* Ensure video takes up full container width */
+    transition: transform 0.3s; /* Smooth transition for scaling */
+}
+
+/* Video Overlay */
+.video-container .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: transparent; /* Hide text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.video-container:hover .video-overlay {
+    opacity: 1;
+}
+
+.video-container:hover {
+    transform: translateY(-10px); /* Move the container up on hover */
+}
+
+.video-container:hover video {
+    transform: scale(1.05); /* Optionally scale the video */
+}
+
+/* Read More Section */
+.read-more {
+    margin-top: 1rem; /* Adjust as needed */
+    text-align: center;
+}
+
+.read-more button {
+    background-color: #ff7300;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.read-more button:hover {
+    background-color: #e65c00; /* Slightly darker orange on hover */
+}
+#loginPromptModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/----------------Video CSS--------------/
+
+.container-fluid.d-flex {
+    display: flex;
+    min-height: calc(100vh - 150px); /* Adjust based on footer height */
+    flex-direction: row;
+    }
+    .main-content {
+        flex: 1;
+        padding: 10px;
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+   /* General tab content styling */
+.tab-content {
+	position:relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    text-align: center;
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.tab-content video, .tab-content iframe {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tabs container styling */
+.tabs {
+    display: flex;
+    flex-direction: row; /* Align tabs horizontally */
+    justify-content: center; /* Center the tabs horizontally */
+    margin-bottom: 1rem;
+}
+
+/* Individual tab button styling */
+.tabs button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    margin: 0 5px; /* Add horizontal margin between buttons */
+    text-align: center;
+}
+
+.tabs button.active {
+    background-color: #ff7300;
+    color: #fff;
+}
+
+/* Instructions section styling */
+.instructions {
+    margin-top: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+}
+#workout-heading {
+    font-size: 20px;
+    font-weight: bold;
+    color:#ff7300;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+#workout-heading::before {
+    font-style: italic;
+    color:#ff7300;
+}
+
+/* General Sidebar Styles */
+.sidebar {
+    width: 260px;
+    background-color: #f4f4f9; /* Lighter background for a clean look */
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: calc(100vh - 150px); /* Fixed height with scrolling */
+    position: sticky;
+    top: 0;
+    height: 100%;
+}
+
+/* Styling for the list of videos */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Styling for each list item in the sidebar */
+.sidebar ul li {
+    margin-bottom: 10px; /* Space between items */
+}
+
+/* Styling for the link/button */
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #e0e0e0; /* Light gray background for non-active state */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Hover effect for video buttons */
+.sidebar ul li a:hover {
+    background-color: #ff7300; /* Orange background on hover */
+    color: white;
+}
+
+/* Active button style */
+.sidebar ul li a.active {
+    background-color: #ff7300; /* Active state background color */
+    color: #fff; /* White text for active item */
+}
+
+/* Styling for the workout heading */
+#workout-heading {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+/* Back button with icon styling */
+.back-btn {
+    display: inline-block;
+    background-color: #f8f9fa;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.back-btn i {
+    font-size: 20px;
+    color: #ff7300;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#how-to-do-video {
+    width: 100%;   
+    height: 400px; 
+}
+.instructions {
+    margin-top: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%; /* Ensure full width */
+}
+
+.instructions-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 20px; /* Space between columns */
+}
+
+.column {
+    background-color: #fff; /* White background for columns */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.column h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2em; /* Slightly larger font size for headings */
+}
+
+.column p {
+    margin-top: 0;
+    line-height: 1.6; /* Improve readability */
+    color: #333; /* Dark text color for better contrast */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+#animation-tab #start-button,
+#animation-tab #timer-container {
+    display: block;
+}
+
+#muscles-tab #start-button,
+#muscles-tab #timer-container,
+#how-to-do-tab #start-button,
+#how-to-do-tab #timer-container {
+    display: none;
+}
+/* Ensure full width for timer and instructions */
+#timer-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#timer {
+    font-size: 20px;
+    color: #333;
+    margin-right: 20px;
+    width: 80px;
+    height: 42px;
+    border: 5px solid #ff7300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+button.start {
+    width: 150px;
+    padding: 10px;
+    background-color:#ff7300;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button.start:hover {
+    background-color:#e65c00;
+}
+
+/* Scrollbar customization (optional) */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #ff7300;
+    border-radius: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+
+
+
+
+
+
+
+
+
+/==============================Media Query for Responsiveness =============================/
+/* Tablets (up to 1024px) */
+@media only screen and (max-width: 1024px) {
+    .section-selector {
+        display: flex;               /* Use flexbox for layout */
+        flex-direction: row;         /* Set direction to row */
+        margin-bottom: 1.5rem;       /* Bottom margin */
+    }
+
+    .section-selector button {
+        padding: 8px 16px;           /* Button padding */
+        font-size: 0.9rem;            /* Smaller button font size */
+        flex: 1;                      /* Allow buttons to grow equally */
+        margin: 0 2px;               /* Small horizontal margin between buttons */
+        max-width: 150px;            /* Optional: Max width for buttons */
+    }
+
+    .workout-container h3 {
+        font-size: 1.3rem; /* Adjust h3 size */
+    }
+
+    .workout-container h4 {
+        font-size: 1.1rem; /* Adjust h4 size */
+    }
+
+    .video-section .video-container {
+        width: 250px; /* Reduce width for video container */
+        padding: 15px;
+    }
+
+    .instructions-container {
+        grid-template-columns: 1fr; /* Stack columns in one column layout */
+    }
+
+    .column h3 {
+        font-size: 1.1rem;
+    }
+
+    .column p {
+        font-size: 0.9rem; /* Smaller text for paragraph */
+    }
+
+    .sidebar {
+        width: 220px; /* Adjust sidebar width */
+    }
+}
+
+/* Mobile devices (up to 768px) */
+@media only screen and (max-width: 768px) {
+    .section-selector {
+        display: flex;               /* Use flexbox for layout */
+        flex-direction: row;         /* Set direction to row */
+        margin-bottom: 1rem;         /* Bottom margin */
+    }
+
+    .section-selector button {
+        padding: 6px 12px;           /* Button padding */
+        font-size: 0.8rem;            /* Smaller button font size */
+        flex: 1;                      /* Allow buttons to grow equally */
+        margin: 0 2px;               /* Small horizontal margin between buttons */
+    }
+
+    .workout-container h3 {
+        font-size: 1.2rem;
+    }
+
+    .workout-container h4 {
+        font-size: 1rem;
+    }
+
+    .video-section .video-container {
+        width: 200px; /* Further reduce video container width */
+        padding: 10px;
+    }
+
+    .read-more button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .instructions-container {
+        grid-template-columns: 1fr; /* One column layout */
+        gap: 10px; /* Smaller gap */
+    }
+
+    .column h3 {
+        font-size: 1rem;
+    }
+
+    .column p {
+        font-size: 0.8rem; /* Adjust paragraph text size */
+    }
+
+    #loginPromptModal .modal-content {
+        width: 90%; /* Adjust modal width */
+        max-width: 320px;
+    }
+
+    .sidebar {
+        width: 180px; /* Further reduce sidebar width */
+    }
+
+    .tabs button {
+        padding: 8px 16px;
+        font-size: 0.9rem; /* Smaller font size for tabs */
+    }
+
+    #timer {
+        font-size: 18px;
+        width: 60px;
+        height: 35px;
+        border: 3px solid #ff7300;
+    }
+
+    button.start {
+        width: 130px;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #how-to-do-video {
+        height: 300px; /* Reduce video height for smaller screens */
+    }
+}
+
+/* Small mobile devices (up to 480px) */
+@media only screen and (max-width: 480px) {
+    .section-selector {
+        display: flex;               /* Use flexbox for layout */
+        flex-direction: row;         /* Set direction to row */
+    }
+
+    .section-selector button {
+        font-size: 0.7rem;           /* Smaller font size */
+        padding: 5px 10px;           /* Button padding */
+        flex: 1;                      /* Allow buttons to grow equally */
+        margin: 0 2px;               /* Small horizontal margin between buttons */
+    }
+
+    .workout-container h3 {
+        font-size: 1rem; /* Adjust h3 size */
+    }
+
+    .workout-container h4 {
+        font-size: 0.9rem;
+    }
+
+    .video-section .video-container {
+        width: 180px; /* Reduce video container width further */
+        padding: 8px;
+    }
+
+    .read-more button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .instructions-container {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .column h3 {
+        font-size: 0.9rem;
+    }
+
+    .column p {
+        font-size: 0.75rem;
+    }
+
+    #loginPromptModal .modal-content {
+        width: 95%; /* More responsive modal width */
+    }
+
+    .sidebar {
+        width: 150px; /* Narrow sidebar for small screens */
+    }
+
+    .tabs button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    #timer {
+        font-size: 16px;
+        width: 50px;
+        height: 30px;
+        border: 2px solid #ff7300;
+    }
+
+    button.start {
+        width: 120px;
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    #how-to-do-video {
+        height: 250px; /* Smaller video height */
+    }
+}
+
+ #copy-message {
+            display: none;
+            color: green;
+            margin-top: 10px;
+        }
+        
+
+
+/*============video page responsive===========*/
+ /* General Sidebar Styles for Tablet and Mobile */
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 260px; 
+                background-color: #f4f4f9; 
+                padding: 10px; 
+                overflow-y: auto; 
+                position: absolute; 
+                left: 0; 
+                top: 180px; 
+                height: calc(100% - 180px); 
+                z-index: 999; 
+                transition: transform 0.3s ease; 
+            }
+        }
+
+        /* On larger screens (Desktop) */
+        @media (min-width: 769px) {
+            .sidebar {
+                transform: translateX(0); 
+            }
+        }
+
+        /* On smaller screens (tablets, mobiles) */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%); 
+            }
+
+            .sidebar.open {
+                transform: translateX(0); 
+            }
+              
+          
+
+            #sidebarToggle {
+                display: block;
+                position: absolute;
+                top: 150px; 
+                left: 10px; 
+                font-size: 30px;
+                background-color: transparent;
+                border: none;
+                z-index: 1000;
+                cursor: pointer;
+                color: black; 
+                transition: transform 0.3s ease; /* Smooth transition */
+            }
+
+            #sidebarToggle.active {
+                transform: rotate(90deg); /* Rotate when active */
+            }
+        }
+
+        /* Hide the toggle button on larger screens */
+        #sidebarToggle {
+            display: none; 
+        }
+
+        /* For small screens, show the button */
+        @media (max-width: 768px) {
+            #sidebarToggle {
+                display: block; 
+            }
+        }
+
+        /* Icon Animation */
+        .icon-hamburger, .icon-cross {
+            transition: opacity 0.3s ease;
+        }
+
+        .icon-cross {
+            display: none; /* Hide cross by default */
+        }
+        
+        
+
+        /* When active */
+        #sidebarToggle.active .icon-hamburger {
+            display: none; /* Hide hamburger when active */
+        }
+
+        #sidebarToggle.active .icon-cross {
+            display: inline; /* Show cross when active */
+        }

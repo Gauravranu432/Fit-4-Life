@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit4Life</title>
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/signup.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+</head>
+<body>
+<input type="hidden" id="status" value="<%=request.getAttribute(status) %>">
+    <div class="container">
+        <div class="close-button" onclick="redirectToIndex()">×</div>
+        <div class="login-link">
+            <div class="logo">
+                <i class='bx bx-pencil'></i>
+                <span class="text">Fit4Life</span>
+            </div>
+            <p class="side-big-hedaing">Already a member?</p>
+            <p class="primary-bg-text">To keep track of your dashboard, please log in with your personal info.</p>
+            <a href="login" class="loginbtn">Login</a>
+        </div>
+
+        <!-- Add an ID to the form to make it selectable in jQuery -->
+        <form id="register-form" class="signup-form-container" action="/signup" method="post">
+            <p class="big-heading">Create Account</p>
+            <br><br><br>
+
+            <div class="progress-bar">
+                <div class="stage">
+                    <p class="tool-tip">Personal info</p>
+                    <p class="stageno stageno-1">1</p>
+                </div>
+                <div class="stage">
+                    <p class="tool-tip">Contact info</p>
+                    <p class="stageno stageno-2">2</p>
+                </div>
+                <div class="stage">
+                    <p class="tool-tip">Final Submit</p>
+                    <p class="stageno stageno-3">3</p>
+                </div>
+            </div>
+
+            <div class="signup-form-content">
+                <!-- stage1-content -->
+                <div class="stage1-content">
+                    <div class="button-container">
+                        <div class="text-fields fname">
+                            <label for="fname"><i class='bx bx-user'></i></label>
+                            <input type="text" name="fname" id="fname" placeholder="Enter your first name">
+                        </div>
+                        <div class="text-fields lname">
+                            <label for="lname"><i class='bx bx-user'></i></label>
+                            <input type="text" name="lname" id="lname" placeholder="Enter your last name">
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <div class="text-fields dob">
+                            <input type="date" name="dob" id="dob">
+                        </div>
+                          <div class="text-fields gender-selection">
+        <p class="fields-heading">Gender:</p>
+        <select name="gender" id="gender">
+            <option value="" disabled selected>Select your gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+                    </div>
+                    <div class="pagination-btns">
+                        <input type="button" value="Next" class="nextPage stagebtn1b" onclick="stage1to2()">
+                    </div>
+                </div>
+
+                <!--stage2-content-->
+                <div class="stage2-content">
+                    <div class="button-container">
+                        <div class="text-fields phone">
+                            <label for="phone"><i class='bx bx-phone'></i></label>
+                            <input type="text" name="phone" id="phone" placeholder="Phone number">
+                        </div>
+                        <div class="text-fields email">
+                            <label for="email"><i class='bx bx-envelope'></i></label>
+                            <input type="email" name="email" id="email" placeholder="Enter your email id">
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <div class="text-fields password">
+                            <label for="password"><i class='bx bx-lock-alt'></i></label>
+                            <input type="password" name="password" id="password" placeholder="Enter password" 
+                                   oninput="validatePassword()" onfocus="showPasswordValidation()" onblur="hidePasswordValidation()">
+                                   <i class='bx bx-hide password-toggle' id="togglePassword"></i>
+                    
+                            <div id="passwordValidation" class="password-validation">
+                                <p id="length" class="invalid">At least 8 characters</p>
+                                <p id="uppercase" class="invalid">At least one uppercase letter</p>
+                                <p id="lowercase" class="invalid">At least one lowercase letter</p>
+                                <p id="number" class="invalid">At least one number</p>
+                                <p id="specialChar" class="invalid">At least one special character</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-fields confirmpassword">
+                            <label for="confirmpassword"><i class='bx bx-lock-alt'></i></label>
+                            <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password">
+                            <i class='bx bx-hide password-toggle' id="toggleConfirmPassword"></i>
+                    
+                        </div>
+                    </div>
+                    <div class="pagination-btns">
+                        <input type="button" value="Previous" class="previousPage stagebtn2a" onclick="stage2to1()">
+                        <input type="button" value="Next" class="nextPage stagebtn2b" onclick="stage2to3()">
+                    </div>
+                </div>
+
+                <!-- stage3-content -->
+                <div class="stage3-content">
+                    <div class="tc-container">
+                        <label for="tc" class="tc">
+                            <input type="checkbox" name="tc" id="tc" required>
+                            By submitting your details, you agree to the <a href="#">terms and conditions.</a>
+                        </label>
+                    </div>
+                    <div class="pagination-btns">
+                        <input type="button" value="Previous" class="previousPage stagebtn3a" onclick="stage3to2()">
+                        <input type="submit" value="Submit" class="nextPage stagebtn3b">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#register-form').on('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Perform validation here if needed
+                swal({
+                    title: "Congrats",
+                    text: "You have successfully registered!",
+                    icon: "success",
+                    button: "OK",
+                }).then(function() {
+                    // Submit the form after showing the SweetAlert
+                    $('#register-form')[0].submit();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

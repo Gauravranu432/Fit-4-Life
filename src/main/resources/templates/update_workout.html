@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>Fit4Life</title>
+    <link rel="icon" href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" type="image/x-icon" />
+    
+    <!-- Fonts and icons -->
+    <script src="Admin/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["Admin/assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        .highlight-label {
+            font-weight: bold;
+        }
+        .highlight-dropdown {
+            background-color: #f8f9fa;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.875em;
+        }
+    </style>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="Admin/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Admin/assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="Admin/assets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="Admin/assets/css/demo.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">Update Workout</div>
+                        </div>
+                        <!-- Workout form -->
+                        <div class="card-body">
+                            <form id="WorkOutForm" method="POST" action="/workouts/update/${workoutVideo.id}">
+                                <div class="row">
+                                    <!-- Workout Category Drop down -->
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="workoutCategory" class="form-label highlight-label">Select Workout Category</label>
+                                            <select class="form-select highlight-dropdown" id="workoutCategory" name="workoutCategory">
+                                                <option value="" disabled>Select Workout Category</option>
+                                                <option value="Beginner" th:selected="${workoutVideo.workoutCategory == 'Beginner'}">Beginner</option>
+                                                <option value="Intermediate" th:selected="${workoutVideo.workoutCategory == 'Intermediate'}">Intermediate</option>
+                                                <option value="Advanced" th:selected="${workoutVideo.workoutCategory == 'Advanced'}">Advanced</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Workout Type Dropdown -->
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="workoutType" class="form-label highlight-label">Select Workout Type</label>
+                                            <select class="form-select highlight-dropdown" id="workoutType" name="workoutType">
+                                                <!-- Options will be populated dynamically -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- Title Field -->
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="title" class="form-label highlight-label">Workout Name</label>
+                                            <input type="text" class="form-control" id="title" name="workoutName" th:value="${workoutVideo.workoutName}" placeholder="Enter the Workout Name" />
+                                        </div>
+                                    </div>
+                                    <!-- Video Link Inputs -->
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="mb-3">
+                                            <label for="animationSrc" class="form-label highlight-label">Animation Video Link</label>
+                                            <input type="url" class="form-control" id="video1" name="animationUrl" th:value="${workoutVideo.animationUrl}" placeholder="Enter Animation Video URL" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="musclesSrc" class="form-label highlight-label">Muscles Video Link</label>
+                                            <input type="url" class="form-control" id="video2" name="musclesUrl" th:value="${workoutVideo.musclesUrl}" placeholder="Enter Muscles Video URL" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="howToDoSrc" class="form-label highlight-label">How To Do Video Link</label>
+                                            <input type="url" class="form-control" id="video3" name="howToDoUrl" th:value="${workoutVideo.howToDoUrl}" placeholder="Enter How To Do Video URL" />
+                                        </div>
+                                    </div>
+                                    <!-- Text Areas -->
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="mb-3">
+                                            <label for="instructions" class="form-label highlight-label">Instructions</label>
+                                            <textarea class="form-control" id="instructions" name="instructions" rows="3" th:text="${workoutVideo.instructions}"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="commonMistakes" class="form-label highlight-label">Common Mistakes</label>
+                                            <textarea class="form-control" id="commonMistakes" name="commonMistakes" rows="3" th:text="${workoutVideo.commonMistakes}"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-4">
+                                        <div class="mb-3">
+                                            <label for="focusArea" class="form-label highlight-label">Focus Area</label>
+                                            <textarea class="form-control" id="focusArea" name="focusArea" rows="3" th:text="${workoutVideo.focusArea}"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="breathingTips" class="form-label highlight-label">Breathing Tips</label>
+                                            <textarea class="form-control" id="breathingTips" name="breathingTips" rows="3" th:text="${workoutVideo.breathingTips}"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Submit Buttons -->
+                                <div class="d-flex justify-content-center mt-3">
+                                    <button type="submit" class="btn btn-success me-2">Update</button>
+                                    <a href="/workout_table" class="btn btn-danger">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="Admin/assets/js/core/jquery.3.2.1.min.js"></script>
+    <script src="Admin/assets/js/core/popper.min.js"></script>
+    <script src="Admin/assets/js/core/bootstrap.min.js"></script>
+    <script src="Admin/assets/js/plugin/bs5-datatable/datatables.bundle.min.js"></script>
+    <script src="Admin/assets/js/kaiadmin.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Category and Type Data
+            const workoutData = {
+                "Beginner": ["Abs Beginner", "Chest Beginner", "Arm Beginner", "Leg Beginner", "Shoulder & Back Beginner"],
+                "Intermediate": ["Abs Intermediate", "Chest Intermediate", "Arm Intermediate", "Leg Intermediate", "Shoulder & Back Intermediate"],
+                "Advanced": ["Abs Advanced", "Chest Advanced", "Arm Advanced", "Leg Advanced", "Shoulder & Back Advanced"]
+            };
+
+            const workoutCategory = document.getElementById('workoutCategory');
+            const workoutType = document.getElementById('workoutType');
+
+            // Populate workoutType dropdown based on selected workoutCategory
+            workoutCategory.addEventListener('change', function() {
+                const selectedCategory = this.value;
+                workoutType.innerHTML = '<option value="" selected disabled>Select Workout Type</option>';
+                
+                if (workoutData[selectedCategory]) {
+                    workoutData[selectedCategory].forEach(type => {
+                        const option = document.createElement('option');
+                        option.value = type;
+                        option.textContent = type;
+                        workoutType.appendChild(option);
+                    });
+                }
+            });
+
+            // Set the initial workoutType options based on pre-filled category
+            const initialCategory = workoutCategory.value;
+            if (initialCategory) {
+                workoutCategory.dispatchEvent(new Event('change'));
+                workoutType.value = '${workoutVideo.workoutType}'; // Pre-select the correct type
+            }
+        });
+
+        // Form submission handler
+        document.getElementById('WorkOutForm').addEventListener('submit', function(e) {
+            // Add validation logic here
+            e.preventDefault();
+            // Example of custom validation
+            const titleInput = document.getElementById('title');
+            if (titleInput.value.trim() === '') {
+                alert('Workout Name is required.');
+                titleInput.focus();
+                return false;
+            }
+            // Continue with form submission if validation passes
+            this.submit();
+        });
+    </script>
+</body>
+</html>

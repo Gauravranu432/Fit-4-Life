@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit4Life</title>
+    <link rel="icon" href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            background-image: url('https://res.cloudinary.com/deup6t83x/image/upload/v1721285969/banner_dov2e4.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .container {
+            background: #F4F5F8;
+            border-radius: 5px;
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 12px 18px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: grey;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: red;
+        }
+
+        .big-heading {
+            font-weight: 700;
+            font-size: 2rem;
+            color: #222429;
+            margin-bottom: 20px;
+        }
+
+        .text-fields {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .text-fields input {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 15px 10px;
+            width: 100%;
+            box-shadow: none;
+            font-size: 1rem;
+            padding-top:15px;
+        }
+
+        .text-fields label {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            color: #888;
+            font-size: 1rem;
+            transform: translateY(-50%);
+            pointer-events: none;
+            transition: 0.3s ease;
+        }
+
+        .text-fields input:focus + label,
+        .text-fields input:not(:placeholder-shown) + label {
+            top: -10px;
+            left: 10px;
+            color: #fb5b21;
+            font-size: 0.80rem;
+            font-weight: bold;
+        }
+
+        .btn-custom {
+            background-color: #FB5B21;
+            color: #F4F5F8;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+
+        .btn-custom:hover {
+            background-color: #e94e1b;
+        }
+        .password-toggle {
+    	cursor: pointer;
+    	position: absolute;
+    	right: 10px;
+   		top: 50%;
+    	transform: translateY(-50%);
+		}
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+            .big-heading {
+                font-weight: bold;
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .text-fields input {
+                font-size: 0.9rem;
+            }
+            .big-heading {
+                font-weight: bold;
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="close-button" onclick="redirectToIndex()">×</div>
+        <form id="loginForm" class="signup-form-container">
+            <p class="big-heading">Login as an Admin</p>
+            <div class="text-fields">
+                <input type="email" name="email" id="email" placeholder="Email">
+                <label for="email">Email</label>
+            </div>
+            <div class="text-fields">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <label for="password">Password</label>
+                <i class='bx bx-hide password-toggle' id="togglePassword"></i>
+            </div>
+            <button type="button" onclick="submitLoginDetails()" class="btn btn-custom">Login</button>
+        </form>
+    </div>
+
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+
+    togglePassword.addEventListener('click', function () {
+        // Toggle password visibility
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // Toggle the icon between bx-show and bx-hide
+        this.classList.toggle('bx-show');
+        this.classList.toggle('bx-hide');
+    });
+    
+    function submitLoginDetails() {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        let errorMessage = '';
+
+        if (!email) {
+            errorMessage += 'Please enter your email.\n';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            errorMessage += 'Please enter a valid email address.\n';
+        }
+
+       /* if (!password) {
+            errorMessage += 'Please enter your password.\n';
+        } else if (!/(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,12}$/.test(password)) {
+            errorMessage += 'Password must be 8-12 characters long, include at least one uppercase letter, one lowercase letter, one number, and one special character.\n';
+        }*/
+
+        if (errorMessage) {
+            alert(errorMessage.trim());
+        } else {
+            // Send login details to the backend
+            fetch('https://fit4life-team-6-production.up.railway.app/api/admin/login?email=' + encodeURIComponent(email) + '&password=' + encodeURIComponent(password), {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    alert('Login successful!');
+                    localStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = 'admin';
+                } else {
+                    alert('Invalid email or password.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        }
+    }
+        // Function to redirect to index.html
+        function redirectToIndex() {
+            window.location.href = 'index';
+        }
+    </script>
+</body>
+</html>

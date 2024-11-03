@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fit4Life</title>
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+      type="image/x-icon"
+    />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!-- Bootstrap link  -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--  css Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+   .video-container {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Ensures no overflow */
+}
+
+.video-width {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}    
+
+ body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+
+    </style>
+
+</head>
+
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid bg-dark px-0">
+        <div class="row gx-0">
+            <div class="col-lg-3 bg-dark d-none d-lg-flex align-items-center justify-content-center">
+                <a href="index" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="Fit4Life Logo" class="img-fluid logo-img">
+                </a>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0 px-lg-5">
+			        <a href="index" class="navbar-brand d-block d-lg-none">
+			            <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="Fit4Life Logo" class="img-fluid logo-img">
+			        </a>
+			        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+			            <div class="navbar-nav mr-auto py-0">
+			                <a href="index" class="nav-item nav-link active">Home</a>
+			                <a href="workout" class="nav-item nav-link">Workout</a>
+			              	<a href="history" id="dashboardLink" class="nav-item nav-link">Dashboard</a>
+			              	<a href="diet" class="nav-item nav-link">Diet</a>
+			                <a href="about" class="nav-item nav-link">About</a>
+			                <a href="contact" class="nav-item nav-link">Contact</a>
+			            </div>
+			            <div class="nav-item dropdown">
+			                <a href="#" id="loginDropdown" class="btn btn-primary py-md-3 px-md-5 nav-link dropdown-toggle hidden" data-bs-toggle="dropdown">
+			                    Login
+			                </a>
+			                <div class="dropdown-menu dropdown-menu-end rounded-0 m-0 hidden" id="dropdownMenu">
+			                    <!-- Content will be injected by JavaScript -->
+			                </div>
+			            </div>
+			        </div>
+			    </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="video-container">
+                    <video class="video-width" autoplay loop muted>
+                        <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1721238592/vdo_tscewa.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h1 class="display-2 text-white text-uppercase mb-md-4">Step Into Fitness Transform Your Life</h1>
+                        <a href="signup" class="btn btn-primary py-md-3 px-md-5 me-3 btn-register">Register</a>
+                        <a href="contact" class="btn btn-light py-md-3 px-md-5 btn-contact">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="video-container">
+                    <video class="video-width" autoplay loop muted>
+                        <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1721238410/vdo3_c4jhyc.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h1 class="display-2 text-white text-uppercase mb-md-4">Unleash your potential lead a fit life</h1>
+                        <a href="signup" class="btn btn-primary py-md-3 px-md-5 me-3 btn-register">Register</a>
+                        <a href="contact" class="btn btn-light py-md-3 px-md-5 btn-contact">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="video-container">
+                    <video class="video-width" autoplay loop muted>
+                        <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1721237898/vdo2_aln6pf.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h1 class="display-2 text-white text-uppercase mb-md-4">Your best self is just a login away. Start now!</h1>
+                        <a href="signup" class="btn btn-primary py-md-3 px-md-5 me-3 btn-register">Register</a>
+                        <a href="contact" class="btn btn-light py-md-3 px-md-5 btn-contact">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+    <!-- Carousel End -->    
+
+     <!--  Cards code start-->  
+     <div class="container">
+        <div class="card-group vgr-cards">
+            <div class="card card1 right">
+                <div class="card-img-body">
+                    <img id="dynamic-img-1" class="card-img" alt="Fitness image 1">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title text-uppercase my-4">Elevate Your Fitness Journey</h4>
+                    <p class="card-text"><b>Unlock a new level of health with our dynamic workout plans.</b> Whether you’re just starting out or looking to push your limits, our plans are designed to adapt to your progress and help you excel at every stage. Find the perfect plan to match your fitness level and see transformative results.</p>
+                </div>
+            </div>
+            <div class="card card1 left">
+                <div class="card-img-body">
+                    <img id="dynamic-img-2" class="card-img" alt="Fitness image 2">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title text-uppercase my-4">Seamless Progress Tracking</h4>
+                    <p class="card-text"><b>Empower yourself with clear insights into your fitness progress.</b> Our user-friendly  lets you monitor your achievements, set new goals, and stay motivated. Keep track of every workout and celebrate your milestones with our advanced tracking tools.</p>
+                </div>
+            </div>
+            <div class="card card1 right">
+                <div class="card-img-body">
+                    <img id="dynamic-img-3" class="card-img" alt="Fitness image 3">
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title text-uppercase my-4">Innovative Workouts for Every Level</h4>
+                    <p class="card-text"><b>Experience the difference with expertly curated workouts.</b> Each plan features a variety of exercises to keep your routine engaging and effective. From foundational movements to advanced techniques, we offer the resources you need to stay challenged and see real progress.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  cards code end-->    
+
+    <!-- Programe Start -->
+    <div class="container-fluid programe position-relative px-5 mt-5" style="margin-bottom: 135px;">
+        <div class="row g-5 gb-5">
+            <div class="col-lg-4 col-md-6 zoom">
+                <div class="bg-light rounded text-center p-5">
+                    <i class="flaticon-six-pack display-1 text-primary"></i>
+                    <h3 class="text-uppercase my-4">Beginner</h3>
+                    <p>Just starting your fitness journey? Our beginner exercises are designed to ease you into a regular fitness routine. With step-by-step instructions and easy-to-follow videos, you'll build a strong foundation and gain confidence.</p>
+                    <!--a class="text-uppercase" href="">Read More <i class="bi bi-arrow-right"></i></a-->
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 zoom">
+                <div class="bg-light rounded text-center p-5">
+                    <i class="flaticon-barbell display-1 text-primary"></i>
+                    <h3 class="text-uppercase my-4">Intermediate</h3>
+                    <p>Ready to take your fitness to the next level? Our intermediate exercises offer a variety of workouts that will challenge you and help you progress. These routines are perfect for those who have a basic fitness foundation and are looking to improve their strength and endurance.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 zoom">
+                <div class="bg-light rounded text-center p-5">
+                    <i class="flaticon-bodybuilding display-1 text-primary"></i>
+                    <h3 class="text-uppercase my-4">Advanced</h3>
+                    <p>For those seeking a serious challenge, our advanced exercises are here to push your limits. These high-intensity workouts are designed for experienced fitness enthusiasts looking to maximize their performance and achieve peak physical condition.</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-6 text-center">
+                <h1 class="text-uppercase text-light mb-4">Workout Types We Provide</h1>
+                <a href="workout" class="btn btn-primary py-3 px-5">Start WorkOut</a>
+            </div>
+        </div>
+    </div>
+    <!-- Programe Start -->   
+
+    <!-- Footer Start -->
+   <footer class="footer">
+        <div class="footer-container">
+           <div class="footer-section">
+                <h4 class="footerlinks">Get In Touch</h4>
+                   <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="https://maps.app.goo.gl/dCnG26r8rJsWjd599" target="_blank"><i class="bi bi-geo-alt text-primary me-2"></i>NSTI(w) Noida UP</a>
+                    <a class="text-secondary mb-2" href="mailto:fit4life201301@gmail.com"><i class="bi bi-envelope-open text-primary me-2"></i>fit4life201301@gmail.com</a>
+                    <a class="text-secondary" href="javascript:void(0);" onclick="copyPhoneNumber()"><i class="bi bi-telephone text-primary me-2"></i>+91 841-8081-396</a>
+                        <p id="copy-message">Phone number copied!</p>
+                    
+                </div>                
+            </div>
+            <div class="footer-section">
+                <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="logo" class="img-fluid logo-img rotate-image">
+                <p class="text-secondary mb-2">Discover Your Potential,<br> Transform Your Life with Us.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footerlinks">Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="index"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-secondary mb-2" href="about"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                    <a class="text-secondary mb-2" href="workout"><i class="bi bi-arrow-right text-primary me-2"></i>WorkOut</a>
+                    <a class="text-secondary" href="contact"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                </div>
+           </div>
+        </div>
+    <div class="container-fluid py-4 py-lg-0 px-5" style="background: #111111;">
+        <div class="row gx-5">
+            <div class="col-lg-8">
+                <div class="py-lg-4 text-center">
+                    <p class="text-secondary mb-0">&copy; <a class="text-light fw-bold" href="#">Fit4Life</a>. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="py-lg-4 text-center credit">
+                    <p class="text-light mb-0">Designed by <a class="text-light fw-bold">Health Heros</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-dark py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+   <script>
+  // Fetch Username From Database
+  document.addEventListener('DOMContentLoaded', function () {
+    fetch('/api/getSessionAttributes', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      const { isLoggedIn, fname } = data;
+      const loginButton = document.getElementById('loginDropdown');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+      const dashboardLink = document.getElementById('dashboardLink'); // Select the Dashboard link
+      const registerButtons = document.querySelectorAll('.btn-register'); // Select all Register buttons
+      const contactButtons = document.querySelectorAll('.btn-contact'); // Select all Contact Us buttons
+
+      if (isLoggedIn && fname) {
+        // Replace login button text with first name
+        loginButton.textContent = fname;
+        loginButton.classList.remove('btn-secondary');
+        loginButton.classList.add('btn-primary');
+
+        // Update dropdown to show the logout option
+        dropdownMenu.innerHTML = `
+          <a href="/logout" class="dropdown-item" id="logout">Logout</a>
+        `;
+
+        // Show the Dashboard link if user is logged in
+        dashboardLink.style.display = 'block';
+
+        // Hide all Register and Contact Us buttons if user is logged in
+        registerButtons.forEach(button => button.style.display = 'none');
+        contactButtons.forEach(button => button.style.display = 'none');
+
+      } else {
+        // Show login options if not logged in
+        loginButton.textContent = 'Login';
+        dropdownMenu.innerHTML = `
+          <a href="/login" class="dropdown-item">User Login</a>
+          <a href="/admin_login" class="dropdown-item">Admin Login</a>
+        `;
+
+        // Hide the Dashboard link if user is not logged in
+        dashboardLink.style.display = 'none';
+
+        // Show all Register and Contact Us buttons if user is not logged in
+        registerButtons.forEach(button => button.style.display = 'inline-block');
+        contactButtons.forEach(button => button.style.display = 'inline-block');
+      }
+
+      // Remove the hidden class to display the updated button and dropdown
+      loginButton.classList.remove('hidden');
+      dropdownMenu.classList.remove('hidden');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  });
+</script>
+<script>
+        function copyPhoneNumber() {
+            // Create a temporary input element to copy the number
+            const tempInput = document.createElement('input');
+            tempInput.value = "+91 8418081396";
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            // Show the copy message
+            document.getElementById('copy-message').style.display = 'block';
+            
+            // Hide the message after 2 seconds
+            setTimeout(function() {
+                document.getElementById('copy-message').style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

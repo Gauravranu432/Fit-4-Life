@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit4Life</title>
+    <link rel="icon" href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset_password.css"> <!-- Use reset_password.css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <div class="close-button" onclick="redirectToLogin()">×</div>
+        <div class="form-box">
+            <div class="logo">
+                <i class='bx bx-pencil'></i>
+                <span class="text">Fit4Life</span>
+            </div>
+            <p class="side-big-heading">Forgot your password?</p>
+            <p class="primary-bg-text">Enter your email address below.</p>
+
+          <!--    Display session messages
+            <div class="message">
+                <c:if test="${not empty sessionScope.successMessage}">
+                    <div class="alert alert-success">
+                        ${sessionScope.successMessage}
+                    </div>
+                </c:if>
+                
+                <c:if test="${not empty sessionScope.errorMessage}">
+                    <div class="alert alert-error">
+                        ${sessionScope.errorMessage}
+                    </div>
+                </c:if>
+            </div> -->
+
+            <form id="forgotPasswordForm" method="post" action="/send-otp">
+                <div class="text-fields email">
+                    <label for="email"><i class='bx bx-envelope'></i></label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email id" required>
+                </div>
+                <input type="submit" value="Send OTP" class="nextPage">
+            </form>
+        </div>
+    </div>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script>
+        // Function to redirect to index.html
+        function redirectToLogin() {
+            window.location.href = 'login';
+        }
+    </script>
+</body>
+</html>

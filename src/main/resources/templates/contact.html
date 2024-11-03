@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Fit4Life</title>
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+      type="image/x-icon"
+    />
+        <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font link -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!-- Bootstrap link  -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!--  css Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+   
+
+    /* Media query for tablets (768px and below) */
+    @media only screen and (max-width: 768px) {
+        .col-lg-6 iframe {
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+        }
+    }
+
+    /* Media query for phones (576px and below) */
+    @media only screen and (max-width: 576px) {
+        .col-lg-6 iframe {
+            width: 100%;
+            height: 300px; /* Adjust height as needed */
+        }
+    }
+    
+    @media (max-width: 1024px){
+    	.col-lg-6 {
+    	width:300px;
+    	height:400px;
+    	}
+    }
+    
+
+    
+</style>
+    
+</head>
+
+
+<body>
+    <!-- Header Start -->
+    
+    <div class="container-fluid bg-dark px-0">
+        <div class="row gx-0">
+            <div class="col-lg-3 bg-dark d-none d-lg-flex align-items-center justify-content-center">
+                <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="Fit4Life Logo" class="img-fluid logo-img">
+                </a>
+            </div>
+            <div class="col-lg-9">
+               <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0 px-lg-5">
+			        <a href="index" class="navbar-brand d-block d-lg-none">
+			            <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="Fit4Life Logo" class="img-fluid logo-img">
+			        </a>
+			        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+			            <div class="navbar-nav mr-auto py-0">
+			                <a href="index" class="nav-item nav-link">Home</a>
+			                <a href="workout" class="nav-item nav-link">Workout</a>
+			               <a href="history" id="dashboardLink" class="nav-item nav-link">Dashboard</a>
+			               <a href="diet" class="nav-item nav-link">Diet</a>
+			                <a href="about" class="nav-item nav-link">About</a>
+			                <a href="contact" class="nav-item nav-link active">Contact</a>
+			            </div>
+			            <div class="nav-item dropdown">
+			                <a href="#" id="loginDropdown" class="btn btn-primary py-md-3 px-md-5 nav-link dropdown-toggle hidden" data-bs-toggle="dropdown">
+			                    Login
+			                </a>
+			                <div class="dropdown-menu dropdown-menu-end rounded-0 m-0 hidden" id="dropdownMenu">
+			                    <!-- Content will be injected by JavaScript -->
+			                </div>
+			            </div>
+			        </div>
+			    </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-primary p-5 bg-hero mb-5">
+        <div class="row py-5">
+            <div class="col-12 text-center">
+                <h1 class="display-2 text-uppercase text-white mb-md-4">Contact</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- Contact Start -->
+    <div class="container-fluid p-5">
+        <div class="mb-5 text-center">
+            <h5 class="text-primary text-uppercase">Contact Us</h5>
+            <h1 class="display-3 text-uppercase mb-0">Get In Touch</h1>
+        </div>
+        <div class="row g-5 mb-5">
+            <div class="col-lg-4">
+                <div class="d-flex flex-column align-items-center bg-dark rounded text-center py-5 px-3">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-map-marker-alt fs-4 text-white"></i>
+                    </div>
+                    <h5 class="text-uppercase text-primary">Visit Us</h5>
+                    <p class="text-secondary mb-0">Sector-1 Block-D NSTI(W) Noida UP</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex flex-column align-items-center bg-dark rounded text-center py-5 px-3">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-envelope fs-4 text-white"></i>
+                    </div>
+                    <h5 class="text-uppercase text-primary">Email Us</h5>
+                    <p class="text-secondary mb-0">fit4life201301@gmail.com</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-flex flex-column align-items-center bg-dark rounded text-center py-5 px-3">
+                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                        <i class="fa fa-phone fs-4 text-white"></i>
+                    </div>
+                    <h5 class="text-uppercase text-primary">Call Us</h5>
+                    <p class="text-secondary mb-0">+91 841 8081 396</p>
+                </div>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-6">
+                <div class="bg-dark p-5">
+                    <form id="contactForm" action="/api/submitContactForm" method="post">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <input type="text" id="name" class="form-control bg-light border-0 px-4" placeholder="Your Name" style="height: 55px;">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="col-6">
+                                <input type="email" id="email" class="form-control bg-light border-0 px-4" placeholder="Your Email" style="height: 55px;">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="col-12">
+                                <input type="tel" id="phone" class="form-control bg-light border-0 px-4" placeholder="Phone Number" style="height: 55px;">
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="col-12">
+                                <textarea id="message" class="form-control bg-light border-0 px-4 py-3" rows="4" placeholder="Message"></textarea>
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                             
+                    
+                </div>
+            </div>
+            <div class="col-lg-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14013.256972160563!2d77.3115001!3d28.5903482!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce4f48ccfdc81%3A0x23b82756bfac9089!2sNational%20Skill%20Training%20Institute%20for%20Women!5e0!3m2!1sen!2sin!4v1721103863544!5m2!1sen!2sin" width="600" height="439" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+
+
+
+    <!-- Footer Start -->
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footerlinks">Get In Touch</h4>
+                   <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="https://maps.app.goo.gl/dCnG26r8rJsWjd599" target="_blank"><i class="bi bi-geo-alt text-primary me-2"></i>NSTI(w) Noida UP</a>
+                    <a class="text-secondary mb-2" href="mailto:fit4life201301@gmail.com"><i class="bi bi-envelope-open text-primary me-2"></i>fit4life201301@gmail.com</a>
+                    <a class="text-secondary" href="javascript:void(0);" onclick="copyPhoneNumber()"><i class="bi bi-telephone text-primary me-2"></i>+91 841-8081-396</a>
+                        <p id="copy-message">Phone number copied!</p>
+                    
+                </div>                
+            </div>
+            <div class="footer-section">
+                <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="logo" class="img-fluid logo-img rotate-image">
+                <p class="text-secondary mb-2">Discover Your Potential,<br> Transform Your Life with Us.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footerlinks">Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="index"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-secondary mb-2" href="about"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                    <a class="text-secondary mb-2" href="workout"><i class="bi bi-arrow-right text-primary me-2"></i>WorkOut</a>
+                    <a class="text-secondary" href="contact"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                </div>
+           </div>
+        </div>
+    <div class="container-fluid py-4 py-lg-0 px-5" style="background: #111111;">
+        <div class="row gx-5">
+            <div class="col-lg-8">
+                <div class="py-lg-4 text-center">
+                    <p class="text-secondary mb-0">&copy; <a class="text-light fw-bold" href="#">Fit4Life</a>. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="py-lg-4 text-center credit">
+                    <p class="text-light mb-0">Designed by <a class="text-light fw-bold">Health Heros</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-dark py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/contact.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const contactForm = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            message: document.getElementById('message').value
+        };
+
+        fetch('/api/submitContactForm', {  // Ensure this URL matches your backend endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(contactForm)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // or response.json() if the response is JSON
+        })
+        .then(data => {
+            console.log('Success:', data);
+            alert('Form submitted successfully!');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert('There was an error submitting the form. Please try again.');
+        });
+    });
+    
+ // Fetch Username From Database
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('/api/getSessionAttributes', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        const { isLoggedIn, fname } = data;
+        const loginButton = document.getElementById('loginDropdown');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const dashboardLink = document.getElementById('dashboardLink'); // Select the Dashboard link
+
+        if (isLoggedIn && fname) {
+          // Replace login button text with first name
+          loginButton.textContent = fname;
+          loginButton.classList.remove('btn-secondary');
+          loginButton.classList.add('btn-primary');
+
+          // Update dropdown to show the logout option
+          dropdownMenu.innerHTML = `
+            <a href="/logout" class="dropdown-item" id="logout">Logout</a>
+          `;
+
+          // Show the Dashboard link if user is logged in
+          dashboardLink.style.display = 'block';
+
+        } else {
+          // Show login options if not logged in
+          loginButton.textContent = 'Login';
+          dropdownMenu.innerHTML = `
+            <a href="/login" class="dropdown-item">User Login</a>
+            <a href="/admin_login" class="dropdown-item">Admin Login</a>
+          `;
+
+          // Hide the Dashboard link if user is not logged in
+          dashboardLink.style.display = 'none';
+        }
+
+        // Remove the hidden class to display the updated button and dropdown
+        loginButton.classList.remove('hidden');
+        dropdownMenu.classList.remove('hidden');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+    </script>   
+    <script>
+        function copyPhoneNumber() {
+            // Create a temporary input element to copy the number
+            const tempInput = document.createElement('input');
+            tempInput.value = "+91 8418081396";
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            // Show the copy message
+            document.getElementById('copy-message').style.display = 'block';
+            
+            // Hide the message after 2 seconds
+            setTimeout(function() {
+                document.getElementById('copy-message').style.display = 'none';
+            }, 2000);
+        }
+    </script>     
+        
+</body>
+
+</html>

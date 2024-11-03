@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit4Life</title>
+    <!-- Favicon -->
+    
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+      type="image/x-icon"
+    />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/workout.css" rel="stylesheet">
+   
+</head>
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid bg-dark px-0">
+        <div class="row gx-0">
+            <div class="col-lg-3 bg-dark d-none d-lg-flex align-items-center justify-content-center">
+                <a href="index" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="Fit4Life Logo" class="img-fluid logo-img">
+                </a>
+            </div>
+            <div class="col-lg-9">
+               <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0 px-lg-5">
+			        <a href="index" class="navbar-brand d-block d-lg-none">
+			            <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="Fit4Life Logo" class="img-fluid logo-img">
+			        </a>
+			        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+			            <div class="navbar-nav mr-auto py-0">
+			                <a href="index" class="nav-item nav-link">Home</a>
+			                <a href="workout" class="nav-item nav-link active">Workout</a>
+			                <a href="history" id="dashboardLink" class="nav-item nav-link">Dashboard</a>
+			                <a href="diet" class="nav-item nav-link">Diet</a>
+			                <a href="about" class="nav-item nav-link">About</a>
+			                <a href="contact" class="nav-item nav-link">Contact</a>
+			            </div>
+			            <div class="nav-item dropdown">
+			                <a href="#" id="loginDropdown" class="btn btn-primary py-md-3 px-md-5 nav-link dropdown-toggle hidden" data-bs-toggle="dropdown">
+			                    Login
+			                </a>
+			                <div class="dropdown-menu dropdown-menu-end rounded-0 m-0 hidden" id="dropdownMenu">
+			                    <!-- Content will be injected by JavaScript -->
+			                </div>
+			            </div>
+			        </div>
+			    </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+<!-- Main content wrapper -->
+<div class="container-fluid d-flex">
+  <div class="sidebar">
+    <!-- The heading with back button -->
+    <h3 id="workout-heading">
+        <span id="back-button" class="back-btn">
+            <i class="fas fa-arrow-left"></i> <!-- Font Awesome back arrow icon -->
+        </span>
+        <span id="heading-text">Workout Videos</span>
+    </h3>
+    <ul id="video-list">
+        <!-- List of workout videos will be added here dynamically -->
+    </ul>
+</div>
+<button id="sidebarToggle" class="toggle-btn">
+        <span class="icon-hamburger">
+            <i class="fas fa-bars"></i>
+        </span>
+        <span class="icon-cross">
+            <i class="fas fa-times"></i>
+        </span>
+    </button>
+    <div class="main-content">
+        <h2 class="text-center mb-4" id="video-title">Video Title</h2>
+
+        <div class="tabs">
+            <button class="tab-btn" data-target="#animation">Animation</button>
+            <button class="tab-btn" data-target="#muscles">Muscles</button>
+            <button class="tab-btn" data-target="#how-to-do">How to Do</button>
+        </div>
+        <div id="animation" class="tab-content">
+            <video id="animation-video" muted controls loop>
+                Your browser does not support the video tag.
+            </video>
+           <div id="timer-container">
+           <span id="timer">00:00</span>
+           <button id="start-button" class="start">Start</button>
+        </div>
+        </div>
+        <div id="muscles" class="tab-content">
+            <video id="muscles-video" autoplay muted controls loop>
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div id="how-to-do" class="tab-content">
+            <iframe id="how-to-do-video" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="instructions">
+            <div class="instructions-container">
+                <div class="column">
+                    <h3>Instructions</h3>
+                    <p id="instruction1">Instruction paragraph 1...</p>
+                </div>
+               <div class="column">
+                    <h3>Focus Area</h3>
+                    <p id="instruction2">Instruction paragraph 2...</p>
+                </div>
+                <div class="column">
+                    <h3>Common Mistakes</h3>
+                    <p id="instruction3">Instruction paragraph 3...</p>
+                </div>
+                <div class="column">
+                    <h3>Breathing Tips</h3>
+                    <p id="instruction4">Instruction paragraph 4...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Footer Start -->
+    <footer class="footer">
+        <div class="footer-container">
+           <div class="footer-section">
+                <h4 class="footerlinks">Get In Touch</h4>
+                   <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="https://maps.app.goo.gl/dCnG26r8rJsWjd599" target="_blank"><i class="bi bi-geo-alt text-primary me-2"></i>NSTI(w) Noida UP</a>
+                    <a class="text-secondary mb-2" href="mailto:fit4life201301@gmail.com"><i class="bi bi-envelope-open text-primary me-2"></i>fit4life201301@gmail.com</a>
+                    <a class="text-secondary" href="javascript:void(0);" onclick="copyPhoneNumber()"><i class="bi bi-telephone text-primary me-2"></i>+91 841-8081-396</a>
+                        <p id="copy-message">Phone number copied!</p>
+                    
+                </div>                
+            </div>
+            <div class="footer-section">
+                <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="logo" class="img-fluid logo-img rotate-image">
+                <p class="text-secondary mb-2">Discover Your Potential,<br> Transform Your Life with Us.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footerlinks">Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="index"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-secondary mb-2" href="about"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                    <a class="text-secondary mb-2" href="workout"><i class="bi bi-arrow-right text-primary me-2"></i>WorkOut</a>
+                    <a class="text-secondary" href="contact"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                </div>
+           </div>
+        </div>
+    <div class="container-fluid py-4 py-lg-0 px-5" style="background: #111111;">
+        <div class="row gx-5">
+            <div class="col-lg-8">
+                <div class="py-lg-4 text-center">
+                    <p class="text-secondary mb-0">&copy; <a class="text-light fw-bold" href="#">Fit4Life</a>. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="py-lg-4 text-center credit">
+                    <p class="text-light mb-0">Designed by <a class="text-light fw-bold">Health Heros</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+   <!-- Back to Top -->
+    <a href="#" class="btn btn-dark py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/video.js"></script>
+    <script>
+ // Function to get URL parameters
+    function getUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            title: params.get('title'),
+            type: params.get('type'),
+            category: params.get('category')
+        };
+    }
+
+    // Function to update the heading with category and type
+    function updateHeading() {
+        const { type, category } = getUrlParams();
+        const headingTextElement = document.getElementById('heading-text');
+        const backButton = document.getElementById('back-button');
+
+        if (category && type) {
+            // Set the heading text to "> Type"
+            headingTextElement.textContent = `${type}`;
+
+            // Back button should redirect to the category and type in workout.html
+            backButton.style.display = 'inline';  // Ensure back button is visible
+            backButton.addEventListener('click', function() {
+                window.location.href = `workout`;
+            });
+        } else {
+            // Default heading if URL parameters are missing
+            headingTextElement.textContent = 'Workout Videos';
+            backButton.style.display = 'none'; // Hide back button if no category or type is present
+        }
+    }
+
+    // Call the function on page load to update the heading
+    updateHeading();
+
+ // Fetch Username From Database
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('/api/getSessionAttributes', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        const { isLoggedIn, fname } = data;
+        const loginButton = document.getElementById('loginDropdown');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const dashboardLink = document.getElementById('dashboardLink'); // Select the Dashboard link
+
+        if (isLoggedIn && fname) {
+          // Replace login button text with first name
+          loginButton.textContent = fname;
+          loginButton.classList.remove('btn-secondary');
+          loginButton.classList.add('btn-primary');
+          // Update dropdown to show the logout option
+          dropdownMenu.innerHTML = `
+            <a href="/logout" class="dropdown-item" id="logout">Logout</a>
+          `;
+
+          // Show the Dashboard link if user is logged in
+          dashboardLink.style.display = 'block';
+
+        } else {
+          // Show login options if not logged in
+          loginButton.textContent = 'Login';
+          dropdownMenu.innerHTML = `
+            <a href="/login" class="dropdown-item">User Login</a>
+            <a href="/admin_login" class="dropdown-item">Admin Login</a>
+          `;
+
+          // Hide the Dashboard link if user is not logged in
+          dashboardLink.style.display = 'none';
+        }
+
+        // Remove the hidden class to display the updated button and dropdown
+        loginButton.classList.remove('hidden');
+        dropdownMenu.classList.remove('hidden');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+    </script>    
+    <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const toggleButton = document.getElementById('sidebarToggle');
+
+            toggleButton.addEventListener('click', function () {
+                sidebar.classList.toggle('open');
+                toggleButton.classList.toggle('active'); // Toggle active class
+            });
+        });
+    </script>      
+    <script>
+        function copyPhoneNumber() {
+            // Create a temporary input element to copy the number
+            const tempInput = document.createElement('input');
+            tempInput.value = "+91 8418081396";
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            // Show the copy message
+            document.getElementById('copy-message').style.display = 'block';
+            
+            // Hide the message after 2 seconds
+            setTimeout(function() {
+                document.getElementById('copy-message').style.display = 'none';
+            }, 2000);
+        }
+    </script>  
+</body>
+</html>

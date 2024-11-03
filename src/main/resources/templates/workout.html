@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit4Life</title>
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+      type="image/x-icon"
+    />
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rubik&display=swap" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/workout.css" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Header Start -->
+    <div class="container-fluid bg-dark px-0">
+        <div class="row gx-0">
+            <div class="col-lg-3 bg-dark d-none d-lg-flex align-items-center justify-content-center">
+                <a href="index" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="Fit4Life Logo" class="img-fluid logo-img">
+                </a>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0 px-lg-5">
+			        <a href="index" class="navbar-brand d-block d-lg-none">
+			            <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="Fit4Life Logo" class="img-fluid logo-img">
+			        </a>
+			        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+			            <span class="navbar-toggler-icon"></span>
+			        </button>
+			        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+			            <div class="navbar-nav mr-auto py-0">
+			                <a href="index" class="nav-item nav-link">Home</a>
+			                <a href="workout" class="nav-item nav-link active">Workout</a>
+			                <a href="history" id="dashboardLink" class="nav-item nav-link">Dashboard</a>
+			                <a href="diet" class="nav-item nav-link">Diet</a>
+			                <a href="about" class="nav-item nav-link">About</a>
+			                <a href="contact" class="nav-item nav-link">Contact</a>
+			            </div>
+			            <div class="nav-item dropdown">
+			            <a href="#" id="loginDropdown" class="btn btn-primary py-md-3 px-md-5 nav-link dropdown-toggle hidden" data-bs-toggle="dropdown">
+			            Login
+			            </a>
+			                <div class="dropdown-menu dropdown-menu-end rounded-0 m-0 hidden" id="dropdownMenu">
+			                    <!-- Content will be injected by JavaScript -->
+			                </div>
+			            </div>
+			        </div>
+			    </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Main Content Start -->
+    <div class="background-wrapper">
+    <div class="container mx-8 my-4">
+        <h2 class="text-center mb-4">Home Workout</h2>
+        <div class="section-selector">
+            <button id="beginner-btn" class="active">Beginner</button>
+            <button id="intermediate-btn">Intermediate</button>
+            <button id="advanced-btn">Advanced</button>
+        </div>
+
+        <!--------------------------Beginner Workout Section Start------------------------------>
+        <div id="beginner-workout" class="workout-container active">
+        <h3 class="text-center mb-4">Beginner</h3>
+        <!-- Abs Beginner Section Start -->
+         <div class="container my-5">
+        <h4>Abs Beginner</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726260974/jumping_jacks.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726260971/russian_twist.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726260967/heel_touch.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726260962/abdonimal_crunches.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Abs Beginner','Beginner')">Read More</button>
+            </div>
+        </div>
+        </div>
+     <!-- Abs Beginner Section End -->
+
+        <!-- Chest Beginner Section Start -->
+        <div class="container my-5">
+        <h4>Chest Beginner</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261209/widearm_pushups.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261208/triceps_dips.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261186/incline_pushups.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261212/knee_pushups.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Chest Beginner','Beginner')">Read More</button>
+            </div>
+        </div>
+     </div>
+     <!-- Chest Beginner Section End -->
+
+     <!-- Arm Beginner Section Start -->
+     <div class="container my-5">
+        <h4>Arm Beginner</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261089/arm_raises.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261103/push_ups.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261170/jumping_jacksarm.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261096/triceps_stretch_right.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Leg Raises', 'Arm Beginner','Beginner')">Read More</button>
+            </div>
+        </div>
+        </div>
+     <!-- Arm Beginner  Section End -->
+
+       <!-- Leg Beginner Section Start -->
+     <div class="container my-5">
+        <h4>Leg Beginner</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261236/side_hop.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261224/knee_to_chest_right.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261209/donkey_kicks_left.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261206/side_lying.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Side Hop', 'Leg Beginner','Beginner')">Read More</button>
+            </div>
+        </div>
+        </div>
+     <!-- Leg Beginner Section End -->
+
+       <!-- Shoulder & Back Beginner Section Start -->
+     <div class="container my-5">
+        <h4>Shoulder & Back Beginner</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261235/cat_cow_pose.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261232/reclined_rhomboid_squeezes.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261235/side_lying_floorstretch.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726261238/rhomboid_pulls.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Shoulder & Back Beginner','Beginner')">Read More</button>
+            </div>
+        </div>
+        </div>
+     <!-- Shoulder & Back Beginnet Section Beginner End -->
+        </div>
+        <!--------------------------- Beginner Workout Section End------------------------------------->
+
+        <!--------------------------Intermediate Workout Section Start------------------------------>
+        <div id="intermediate-workout" class="workout-container">
+        <h3 class="text-center mb-4">Intermediate</h3>
+        <!-- Abs Intermediate Section Start -->
+        <div class="container my-5">
+        <h4>Abs Intermediate</h4>
+
+        <div class="video-section">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300776/bicycle_crunches.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300774/pushups_rotation.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300771/v-up.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300757/butt_bridge.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+        <div class="read-more">
+            <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Abs Intermediate','Intermediate')">Read More</button>
+        </div>
+        </div>
+        </div>
+        <!-- Abs Intermediate Section End -->
+
+         <!-- Chest Intermediate Section Start -->
+        <div class="container my-5">
+        <h4>Chest Intermediate</h4>
+
+      <div class="video-section">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301768/shoulder_stretch.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301790/staggered_pushups.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301791/decline_pushups.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301777/chest_stretch.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+        <div class="read-more">
+            <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Chest Intermediate','Intermediate')">Read More</button>
+        </div>
+          </div>
+        </div>
+         <!-- Chest Intermediate Section End -->
+
+         <!-- Arm Intermediate Section Start -->
+        <div class="container my-5">
+         <h4>Arm Intermediate</h4>
+
+         <div class="video-section">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300897/skipping_without_rope.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300886/alternating_hooks.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300879/military_pushups.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300839/burpees.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+        <div class="read-more">
+            <button class="read-more-btn" onclick="readMore('Arm Circles Clockwise', 'Arm Intermediate', 'Intermediate')">Read More</button>
+        </div>
+             </div>
+         </div>
+            <!-- Arm Intermediate Section End -->
+
+         <!-- Leg Intermediate Section Start -->
+     <div class="container my-5">
+        <h4>Leg Intermediate</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300890/side_leg_circles_right.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300865/sumo_squat.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300895/wall_sit.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300901/lunges.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Leg Intermediate','Intermediate')">Read More</button>
+            </div>
+        </div>
+        </div>
+     <!-- Leg Intermediate Section End -->
+
+      <!-- Shoulder & Back Intermediate Section Start -->
+      <div class="container my-5">
+        <h4>Shoulder & Back Intermediate</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300970/triceps_kickbacks.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300980/hover_pushup.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300948/hip_hinge.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300948/swimmer_superman.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Shoulder & Back Intermediate','Intermediate')">Read More</button>
+            </div>
+        </div>
+        </div>
+     <!-- Shoulder & Back Intermediate Section End -->
+         </div>
+     <!--------------------------- Intermediate Workout Section End------------------------------------->
+
+        <!--------------------------Advanced Workout Section Start------------------------------>
+            <div id="advanced-workout" class="workout-container">
+      <h3 class="text-center mb-4">Advanced</h3>
+      <!-- Abs Advanced Section Start -->
+     <div class="container my-5">
+     <h4>Abs Advanced</h4>
+
+     <div class="video-section">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300976/InShot_20240914_013422130_fcszzv.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300757/butt_bridge.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300776/bicycle_crunches.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726260962/abdonimal_crunches.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+        <div class="read-more">
+            <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Abs Advanced', 'Advanced')">Read More</button>
+        </div>
+         </div>
+         </div>
+            <!-- Abs Advanced End -->
+
+             <!-- Chest Advanced Section Start -->
+        <div class="container my-5">
+         <h4>Chest Advanced</h4>
+
+        <div class="video-section">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301116/spiderman_pushups.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301111/diamond_pushups.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301079/box_pushup.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301079/arm_circles.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+        <div class="read-more">
+            <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Chest Advanced','Advanced')">Read More</button>
+        </div>
+        </div>
+                </div>
+         <!-- Chest Advanced End -->
+
+        <!-- Arm Advanced Section Start -->
+        <div class="container my-5">
+          <h4>Arm Advanced</h4>
+
+         <div class="video-section">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301154/shoulder_gators.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301144/arm_curls_crunch_left.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301146/modified_pushup_low_hold.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+
+        <div class="video-container">
+            <video autoplay muted controls loop>
+                <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301185/doorway_curls_left.mp4" type="video/mp4">
+                Your browser does not support the video.
+            </video>
+            <div class="video-overlay">Play Video</div>
+        </div>
+        <div class="read-more">
+            <button class="read-more-btn" onclick="readMore('Arm Circles Clockwise', 'Arm Advanced','Advanced')">Read More</button>
+        </div>
+             </div>
+         </div>
+        <!-- Arm Advanced End -->
+
+         <!-- Leg Advanced Section Start -->
+     <div class="container my-5">
+        <h4>Leg Advanced</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301228/jumping_squats.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301180/bottom_leg_leftlift.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301199/lying_butterfly_stretch.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301237/curty_lunges.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Burpees', 'Leg Advanced','Advanced')">Read More</button>
+            </div>
+        </div>
+        </div>
+     <!-- Leg Advanced Section End -->
+
+      <!-- Shoulder & Back Advanced Section Start -->
+      <div class="container my-5">
+        <h4>Shoulder & Back Advanced</h4>
+
+        <div class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301112/pike_pushups.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301112/supine_pushup.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726301072/reverse-pushups.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+
+            <div class="video-container">
+                <video autoplay muted controls loop>
+                    <source src="https://res.cloudinary.com/deup6t83x/video/upload/v1726300983/hyper_extension.mp4" type="video/mp4">
+                    Your browser does not support the video.
+                </video>
+                <div class="video-overlay">Play Video</div>
+            </div>
+            <div class="read-more">
+                <button class="read-more-btn" onclick="readMore('Jumping Jacks', 'Shoulder & Back Advanced','Advanced')">Read More</button>
+            </div>
+        </div>
+        </div>
+     <!-- Shoulder & Back Advanced Section End -->
+        </div>
+    <!--------------------------- Advanced Workout Section End------------------------------------->
+    </div>
+    </div>
+         </div>
+        <!-- Main Content End -->
+      <!-- Footer Start -->
+         <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footerlinks">Get In Touch</h4>
+                   <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="https://maps.app.goo.gl/dCnG26r8rJsWjd599" target="_blank"><i class="bi bi-geo-alt text-primary me-2"></i>NSTI(w) Noida UP</a>
+                    <a class="text-secondary mb-2" href="mailto:fit4life201301@gmail.com"><i class="bi bi-envelope-open text-primary me-2"></i>fit4life201301@gmail.com</a>
+                    <a class="text-secondary" href="javascript:void(0);" onclick="copyPhoneNumber()"><i class="bi bi-telephone text-primary me-2"></i>+91 841-8081-396</a>
+                        <p id="copy-message">Phone number copied!</p>
+                    
+                </div>                
+            </div>
+            <div class="footer-section">
+                <img src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" alt="logo" class="img-fluid logo-img rotate-image">
+                <p class="text-secondary mb-2">Discover Your Potential,<br> Transform Your Life with Us.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4 class="footerlinks">Quick Links</h4>
+                <div class="d-flex flex-column justify-content-start">
+                    <a class="text-secondary mb-2" href="index"><i class="bi bi-arrow-right text-primary me-2"></i>Home</a>
+                    <a class="text-secondary mb-2" href="about"><i class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
+                    <a class="text-secondary mb-2" href="workout"><i class="bi bi-arrow-right text-primary me-2"></i>WorkOut</a>
+                    <a class="text-secondary" href="contact"><i class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                </div>
+           </div>
+        </div>
+        <div class="container-fluid py-4 py-lg-0 px-5" style="background: #111111;">
+        <div class="row gx-5">
+            <div class="col-lg-8">
+                <div class="py-lg-4 text-center">
+                    <p class="text-secondary mb-0">&copy; <a class="text-light fw-bold" href="#">Fit4Life</a>. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="py-lg-4 text-center credit">
+                    <p class="text-light mb-0">Designed by <a class="text-light fw-bold">Health Heros</a></p>
+                </div>
+            </div>
+        </div>
+         </div>
+         </footer>
+        <!-- Footer End -->
+     <!-- Login Prompt Modal -->
+<div id="loginPromptModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Please log in to access the videos.</p>
+        <button id="loginNowBtn" class="btn btn-primary">Login Now</button>
+    </div>
+</div>
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-dark py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  
+    <script>
+    document.getElementById('beginner-btn').addEventListener('click', function() {
+        setActiveSection('beginner');
+    });
+    document.getElementById('intermediate-btn').addEventListener('click', function() {
+        setActiveSection('intermediate');
+    });
+    document.getElementById('advanced-btn').addEventListener('click', function() {
+        setActiveSection('advanced');
+    });
+
+    function setActiveSection(level) {
+        document.querySelectorAll('.section-selector button').forEach(function(btn) {
+            btn.classList.remove('active');
+        });
+        document.querySelectorAll('.workout-container').forEach(function(container) {
+            container.classList.remove('active');
+        });
+        document.getElementById(level + '-btn').classList.add('active');
+        document.getElementById(level + '-workout').classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Check login status when the page loads and update the UI accordingly
+        fetch('/api/getSessionAttributes', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            const { isLoggedIn, fname } = data;
+            const loginButton = document.getElementById('loginDropdown');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            const dashboardLink = document.getElementById('dashboardLink'); // Select the Dashboard link
+
+            if (isLoggedIn && fname) {
+                // Replace login button text with the user's first name
+                loginButton.textContent = fname;
+                loginButton.classList.remove('btn-secondary');
+                loginButton.classList.add('btn-primary');
+                // Update the dropdown to show the logout option
+                dropdownMenu.innerHTML = `
+                    <a href="/logout" class="dropdown-item" id="logout">Logout</a>
+                `;
+                // Show the Dashboard link if the user is logged in
+                dashboardLink.style.display = 'block';
+            } else {
+                // If not logged in, show login options and hide the dashboard link
+                loginButton.textContent = 'Login';
+                dropdownMenu.innerHTML = `
+                    <a href="/login" class="dropdown-item">User Login</a>
+                    <a href="/admin_login" class="dropdown-item">Admin Login</a>
+                `;
+                dashboardLink.style.display = 'none';
+            }
+
+            // Remove the hidden class to display the updated button and dropdown
+            loginButton.classList.remove('hidden');
+            dropdownMenu.classList.remove('hidden');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Read more button logic
+    function readMore(title, type, category) {
+        console.log('readMore function called');
+        // Fetch login status from server-side session
+        fetch('/api/getSessionAttributes', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            const isLoggedIn = data.isLoggedIn;
+
+            if (isLoggedIn) {
+                // If user is logged in, redirect to the video page
+                window.location.href = `video?title=${encodeURIComponent(title)}&type=${encodeURIComponent(type)}&category=${encodeURIComponent(category)}`;
+            } else {
+                // If not logged in, show login modal
+                document.getElementById('loginPromptModal').style.display = 'block';
+
+                // Store video details in login button attributes for redirection after login
+                const loginNowBtn = document.getElementById('loginNowBtn');
+                loginNowBtn.setAttribute('data-title', title);
+                loginNowBtn.setAttribute('data-type', type);
+                loginNowBtn.setAttribute('data-category', category);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching login status:', error);
+        });
+    }
+
+    // Handle the login button click inside the modal
+    document.getElementById('loginNowBtn').addEventListener('click', function () {
+        const title = encodeURIComponent(this.getAttribute('data-title'));
+        const type = encodeURIComponent(this.getAttribute('data-type'));
+        const category = encodeURIComponent(this.getAttribute('data-category'));
+
+        // After clicking 'Login Now', redirect to login page with a return URL to the video
+        const redirectUrl = `video?title=${title}&type=${type}&category=${category}`;
+        console.log('Redirect URL:', redirectUrl);
+
+        // Redirect to the login page with the video URL as the return URL
+        window.location.href = `login?redirect=${encodeURIComponent(redirectUrl)}`;
+    });
+
+    // Close the modal when clicking the close button
+    document.querySelector('.modal .close').addEventListener('click', function () {
+        document.getElementById('loginPromptModal').style.display = 'none';
+    });
+
+</script>
+<script>
+        function copyPhoneNumber() {
+            // Create a temporary input element to copy the number
+            const tempInput = document.createElement('input');
+            tempInput.value = "+91 8418081396";
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            // Show the copy message
+            document.getElementById('copy-message').style.display = 'block';
+            
+            // Hide the message after 2 seconds
+            setTimeout(function() {
+                document.getElementById('copy-message').style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

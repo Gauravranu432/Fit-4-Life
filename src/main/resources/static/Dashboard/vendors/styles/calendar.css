@@ -1,0 +1,122 @@
+/* Calendar CSS */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for each day of the week */
+    gap: 5px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better visuals */
+}
+
+.calendar-header {
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #ff7300; /* Header background color */
+    color: #fff; /* White text on header */
+    border-radius: 5px; /* Rounded header corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Header shadow */
+}
+
+.calendar-day {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #fff; /* Default day background color */
+    border-radius: 5px;
+    transition: background-color 0.3s; /* Smooth transition on hover */
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow to days */
+}
+
+.calendar-day:hover {
+    background-color: #ffedcc; /* Light orange background on hover */
+}
+
+.calendar-day.highlight {
+    background-color: green; /* Highlight today's date */
+    color: #fff; /* White text on highlight */
+}
+
+.calendar-day.missed {
+    background-color: red; /* Red background for missed days */
+    color: #fff; /* White text for missed days */
+}
+
+.calendar-day.workout-day {
+    border: 2px solid #ff7300; /* Orange border for workout days */
+    background-color: green; /* Green background for workout days */
+    color: #fff; /* White text for workout days */
+    font-weight: bold; /* Make workout days text bold */
+}
+
+.calendar-day.empty {
+    visibility: hidden; /* Hide empty cells for previous/next month */
+}
+
+/* Calendar Month-Year Navigation CSS */
+#month-year {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#prev-month, #next-month {
+    background-color: #ff7300; /* Button background color */
+    color: #fff; /* White button text */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#prev-month:hover, #next-month:hover {
+    background-color: #ff8b33; /* Slightly lighter shade on hover */
+}
+
+/* Workout Summary Table CSS */
+.table {
+    width: 100%; /* Full width of the container */
+    margin-top: 20px;
+    background-color: #fff; /* Table background */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for the table */
+    border-collapse: collapse; /* Ensure border spacing is collapsed */
+}
+
+.table th, .table td {
+    padding: 12px; /* Add padding for better readability */
+    border: 1px solid #ddd; /* Light grey border for table cells */
+    text-align: center; /* Center align text */
+    vertical-align: middle; /* Vertically center the text */
+}
+
+.table th {
+    background-color: #ff7300; /* Orange header background */
+    color: #fff; /* White text on header */
+    font-weight: bold;
+}
+
+.table td {
+    background-color: #f9f9f9; /* Light background for table rows */
+}
+
+.table td:nth-child(even) {
+    background-color: #fff; /* Alternate row color */
+}
+
+/* Table Hover Effect */
+.table tr:hover {
+    background-color: #ffedcc; /* Light orange on row hover */
+}
+
+/* Section Heading */
+h3 {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+    text-align: center; /* Center align heading */
+}

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Fit4Life</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"/>
+    <link rel="icon" href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" type="image/x-icon"/>
+
+    <!-- Fonts and icons -->
+    <script src="Admin/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["Admin/assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+    <style>
+      .highlight-label{
+        font-weight: bold;
+      }
+      @media (max-width: 768px) {
+      .navbar-brand{
+      height:70px;
+      width:70px;
+      }}
+    </style>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="Admin/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="Admin/assets/css/plugins.min.css"/>
+    <link rel="stylesheet" href="Admin/assets/css/kaiadmin.min.css"/>
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="Admin/assets/css/demo.css"/>
+  </head>
+  <body>
+       <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="#" class="logo">
+              <img
+                src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+                alt="navbar brand"
+                class="navbar-brand"
+                height="65"
+              />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a
+                  data-bs-toggle="collapse"
+                  href="#dashboard"
+                  class="collapsed"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-home"></i>
+                  <p>Dashboard</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="dashboard">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="admin">
+                        <span class="sub-item"> Main Dashboard</span>
+                      </a>
+                    </li>
+                  </ul>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#forms">
+                  <i class="fas fa-pen-square"></i>
+                  <p>Add new WorkOut</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse " id="forms">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="addworkout">
+                        <span class="sub-item">Add WorkOut</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item active submenu">
+                <a data-bs-toggle="collapse" href="#adduser">
+                  <i class="fas fa-user"></i>
+                  <p>Add new User</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse show" id="adduser">
+                  <ul class="nav nav-collapse">
+                    <li class="active">
+                      <a href="adduser">
+                        <span class="sub-item">Add User</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#tables">
+                  <i class="fas fa-table"></i>
+                  <p>Tables</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="tables">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="data">
+                        <span class="sub-item">Registered User</span>
+                      </a>
+                    </li>
+                      <li>
+                      <a href="workout_table">
+                        <span class="sub-item">WorkOuts</span>
+                      </a>
+                    </li>
+                    <li>
+                    <a href="message">
+                        <span class="sub-item">Contact Data</span>
+                      </a>
+                      </li>
+                  </ul>
+                </div>
+
+              <li class="nav-item">
+                  <a href="Admin/assets/img/documentation.pdf">
+                  <i class="fas fa-file"></i>
+                  <p>Documentation</p>
+                  <span class="badge badge-secondary">1</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <div class="collapse" id="submenu">
+                  <ul class="nav nav-collapse">  
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+
+    <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+              <a href="index" class="logo">
+                <img
+                  src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+                  alt="navbar brand"
+                  class="navbar-brand"
+                />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <!-- Navbar Header -->
+          <nav
+            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+          >
+            <div class="container-fluid">
+              <nav
+                class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
+              >
+                
+              </nav>
+
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a
+                    href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox " target="_blank"
+                  >
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <li class="nav-item topbar-user dropdown hidden-caret">
+                    <a
+                      class="dropdown-toggle profile-pic"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                      aria-expanded="false"
+                    >
+                      <div class="avatar-sm">
+                        <img
+                          src="https://res.cloudinary.com/deup6t83x/image/upload/v1725000463/admin_pic_sencpk.webp"
+                          alt="Profile Picture"
+                          class="avatar-img rounded-circle"
+                        />
+                      </div>
+                      <span class="profile-username">
+                        <span class="fw-bold">Fit4Life</span>
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                      <li>
+                        <a class="dropdown-item"  onclick="logout()" href="#">Logout</a>
+                      </li>
+                    </ul>
+                  </li>
+
+              </ul>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+		<!--    Form section  -->
+		<div class="container">
+		  <div class="page-inner">
+		    <div class="page-header">
+		      <h3 class="fw-bold mb-3">Add user Form</h3>
+		      <ul class="breadcrumbs mb-3">
+		        <li class="nav-home">
+		          <a href="#">
+		            <i class="icon-home"></i>
+		          </a>
+		        </li>
+		        <li class="separator">
+		          <i class="icon-arrow-right"></i>
+		        </li>
+		        <li class="nav-item">
+		          <a href="#">Add user</a>
+		        </li> 
+		      </ul>
+		    </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title">Add New User</div>
+                  </div>
+                  <div class="card-body">
+                   <form id="add-user-form" action="/adduser" method="post">
+                      <div class="row">
+                        <!-- First Name -->
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="fname" class="form-label highlight-label">First Name</label>
+                            <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name"/>
+                            <small id="firstNameError" class="form-text text-danger"></small>
+                          </div>
+                        </div>
+                        <!-- Last Name -->
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="lname" class="form-label highlight-label">Last Name</label>
+                            <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your last name"/>
+                            <small id="lastNameError" class="form-text text-danger"></small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- Date of Birth -->
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="dob" class="form-label highlight-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" name="dob"/>
+                            <small id="dobError" class="form-text text-danger"></small>
+                          </div>
+                        </div>
+                        <!-- Gender -->
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="gender" class="form-label highlight-label">Gender</label>
+                            <select class="form-control" id="gender" name="gender">
+                              <option value="" disabled selected>Select your gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Other">Other</option>
+                            </select>
+                            <small id="genderError" class="form-text text-danger"></small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- Phone Number -->
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="phone" class="form-label highlight-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your phone number"/>
+                            <small id="phoneNumberError" class="form-text text-danger"></small>
+                          </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="email" class="form-label highlight-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"/>
+                            <small id="emailError" class="form-text text-danger"></small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- Password -->
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="password" class="form-label highlight-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password"/>
+                            <small id="passwordError" class="form-text text-danger"></small>
+                          </div>
+                        </div>
+                        <!-- Confirm Password -->
+                        <div class="col-md-6">
+                          <div class="mb-3">
+                            <label for="confirmPassword" class="form-label highlight-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password"/>
+                            <small id="confirmPasswordError" class="form-text text-danger"></small>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn btn-success me-2">Submit</button>
+                        <button type="reset" class="btn btn-danger">Cancel</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+         
+          </div>
+        </div>
+
+        <!-- Footer content omitted for brevity -->
+      </div>
+    </div>
+
+    <!--   Core JS Files   -->
+    <script src="Admin/assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="Admin/assets/js/core/popper.min.js"></script>
+    <script src="Admin/assets/js/core/bootstrap.min.js"></script>
+    <!-- Sweet Alert -->
+    <script src="Admin/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    
+   <script>
+  const form = document.getElementById('add-user-form');
+
+  form.addEventListener('submit', function(event) {
+    let isValid = true;
+
+    // Validate First Name
+    const firstName = document.getElementById('fname');
+    const firstNameError = document.getElementById('firstNameError');
+    if (firstName.value.trim() === '') {
+      firstNameError.textContent = 'First name is required.';
+      isValid = false;
+    } else {
+      firstNameError.textContent = '';
+    }
+
+    // Validate Last Name
+    const lastName = document.getElementById('lname');
+    const lastNameError = document.getElementById('lastNameError');
+    if (lastName.value.trim() === '') {
+      lastNameError.textContent = 'Last name is required.';
+      isValid = false;
+    } else {
+      lastNameError.textContent = '';
+    }
+
+    // Validate Date of Birth
+    const dob = document.getElementById('dob');
+    const dobError = document.getElementById('dobError');
+    if (dob.value === '') {
+      dobError.textContent = 'Date of birth is required.';
+      isValid = false;
+    } else {
+      dobError.textContent = '';
+    }
+
+    // Validate Gender
+    const gender = document.getElementById('gender');
+    const genderError = document.getElementById('genderError');
+    if (gender.value === '') {
+      genderError.textContent = 'Gender selection is required.';
+      isValid = false;
+    } else {
+      genderError.textContent = '';
+    }
+
+    // Validate Phone Number
+    const phoneNumber = document.getElementById('phone');
+    const phoneNumberError = document.getElementById('phoneNumberError');
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(phoneNumber.value)) {
+      phoneNumberError.textContent = 'Please enter a valid 10-digit phone number.';
+      isValid = false;
+    } else {
+      phoneNumberError.textContent = '';
+    }
+
+    // Validate Email
+    const email = document.getElementById('email');
+    const emailError = document.getElementById('emailError');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value)) {
+      emailError.textContent = 'Please enter a valid email address.';
+      isValid = false;
+    } else {
+      emailError.textContent = '';
+    }
+
+    // Validate Password
+    const password = document.getElementById('password');
+    const passwordError = document.getElementById('passwordError');
+    if (password.value.trim() === '') {
+      passwordError.textContent = 'Password is required.';
+      isValid = false;
+    } else {
+      passwordError.textContent = '';
+    }
+
+    // Validate Confirm Password
+    const confirmPassword = document.getElementById('confirmPassword');
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
+    if (confirmPassword.value !== password.value) {
+      confirmPasswordError.textContent = 'Passwords do not match.';
+      isValid = false;
+    } else {
+      confirmPasswordError.textContent = '';
+    }
+
+    // Prevent form submission if validation fails
+    if (!isValid) {
+      event.preventDefault();
+    } else {
+      event.preventDefault(); // Prevent default form submission
+      swal({
+        title: "Success!",
+        text: "The user has been added successfully.",
+        icon: "success",
+        button: "OK"
+      }).then(() => {
+        form.submit(); // Submit the form programmatically after the alert
+      });
+    }
+  });
+</script>
+<script>
+    function logout() {
+        localStorage.removeItem('authToken'); 
+        window.location.href = 'index'; 
+    }
+</script>
+  </body>
+</html>

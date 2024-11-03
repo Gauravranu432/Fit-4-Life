@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Admin Dashboard</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+      type="image/x-icon"
+    />
+
+    <!-- Fonts and icons -->
+    <script src="Admin/assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["Admin/assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="Admin/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Admin/assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="Admin/assets/css/kaiadmin.min.css" />
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="Admin/assets/css/demo.css" />
+    
+    <style>
+    .text-danger {
+  border: 2px solid red;  /* Red border */
+  background-color: transparent;  /* Transparent background */
+  color: red;  /* Red text color */
+  padding: 8px 16px;  /* Add some padding */
+  border-radius: 5px;  /* Rounded corners */
+  cursor: pointer;  /* Pointer cursor */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+}
+    </style>
+  </head>
+  <body>
+   <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="index" class="logo">
+              <img
+                src="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+                alt="navbar brand"
+                class="navbar-brand"
+                height="65"
+              />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a
+                data-bs-toggle="collapse"
+                href="#dashboard"
+                class="collapsed"
+                aria-expanded="false"
+              >
+                <i class="fas fa-home"></i>
+                <p>Dashboard</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="dashboard">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="admin">
+                      <span class="sub-item">Main Dashboard</span>
+                    </a>
+                  </li>
+                </ul>
+                <li class="nav-item">
+                  <a data-bs-toggle="collapse" href="#forms">
+                    <i class="fas fa-pen-square"></i>
+                    <p>Add new WorkOut</p>
+                    <span class="caret"></span>
+                  </a>
+                  <div class="collapse" id="forms">
+                    <ul class="nav nav-collapse">
+                      <li>
+                        <a href="addworkout">
+                          <span class="sub-item">Add WorkOut</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#adduser">
+                  <i class="fas fa-user"></i>
+                  <p>Add new User</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="adduser">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="adduser">
+                        <span class="sub-item">Add</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item active submenu">
+                <a data-bs-toggle="collapse" href="#tables">
+                  <i class="fas fa-table"></i>
+                  <p>Tables</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse show" id="tables">
+                  <ul class="nav nav-collapse">
+                
+                    <li class="active">
+                      <a href="data">
+                        <span class="sub-item">Registered User</span>
+                      </a>
+                    </li>
+                      <li>
+                      <a href="workout_table">
+                        <span class="sub-item">WorkOuts</span>
+                      </a>
+                    </li>
+                    <li>
+                    <a href="message">
+                        <span class="sub-item">Contact Data</span>
+                      </a>
+                      </li>
+                  </ul>
+                </div>
+              </li>
+    
+              <li class="nav-item">
+                     <a href="Admin/assets/img/documentation.pdf">
+                  <i class="fas fa-file"></i>
+                  <p>Documentation</p>
+                  <span class="badge badge-secondary">1</span>
+                </a>
+              </li> 
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+              <a href="index" class="logo">
+                <img
+                  src="ahttps://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png"
+                  alt="navbar brand"
+                  class="navbar-brand"
+                  height="60"
+                />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <!-- Navbar Header -->
+          <nav
+            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+          >
+            <div class="container-fluid">
+              <nav
+                class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
+              >
+                
+              </nav>
+
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a
+                    href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox " target="_blank"
+                  >
+                    <i class="fa fa-envelope"></i>
+                  </a>
+                  <li class="nav-item topbar-user dropdown hidden-caret">
+                    <a
+                      class="dropdown-toggle profile-pic"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                      aria-expanded="false"
+                    >
+                      <div class="avatar-sm">
+                        <img
+                          src="https://res.cloudinary.com/deup6t83x/image/upload/v1725000463/admin_pic_sencpk.webp"
+                          alt="Profile Picture"
+                          class="avatar-img rounded-circle"
+                        />
+                      </div>
+                      <span class="profile-username">
+                        <span class="fw-bold">Fit4Life</span>
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user animated fadeIn">
+                      <li>
+                        <a class="dropdown-item"  onclick="logout()" href="#">Logout</a>
+                      </li>
+                    </ul>
+                  </li>
+
+              </ul>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+
+        <div class="container">
+          <div class="page-inner">
+            <div class="page-header">
+              <h3 class="fw-bold mb-3">Registered Users</h3>
+              <ul class="breadcrumbs mb-3">
+                <li class="nav-home">
+                  <a href="#">
+                    <i class="icon-home"></i>
+                  </a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="#">Tables</a>
+                </li>
+                <li class="separator">
+                  <i class="icon-arrow-right"></i>
+                </li>
+                <li class="nav-item">
+                  <a href="#">Datatables</a>
+                </li>
+            </div>
+              <div class="col-md-12">
+			  <div class="card">
+			    <div class="card-header">
+			      <h4 class="card-title">User Table</h4>
+			    </div>
+			    <div class="card-body">
+			      <div class="table-responsive">
+			<table id="multi-filter-select" class="display table table-striped table-hover">
+			    <thead class="thead-dark bg-dark text-white">
+			        <tr>
+			            <th>First Name</th>
+			            <th>Last Name</th>
+			            <th>Date Of Birth</th>
+			            <th>Gender</th>
+			            <th>Phone No.</th>
+			            <th>Email</th>
+			            <th>Actions</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.fname}"></td>
+            <td th:text="${user.lname}"></td>
+            <td th:text="${user.dob}"></td>
+            <td th:text="${user.gender}"></td>
+            <td th:text="${user.phone}"></td>
+            <td th:text="${user.email}"></td>
+            <td>
+                <!-- a th:href="@{/users/update/{id}(id=${user.id})}" class="text-success me-3">
+                    <i class="fas fa-edit"></i-->
+                </a>
+                <a th:href="@{/users/delete/{id}(id=${user.id})}" class="text-danger" onclick="return confirm('Are you sure you want to delete this user?');">
+                    <i class="fas fa-trash-alt">Delete</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+            </div>
+          </div>
+        </div>
+
+       
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="Admin/assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="Admin/assets/js/core/popper.min.js"></script>
+    <script src="Admin/assets/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="Admin/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <!-- Datatables -->
+    <script src="Admin/assets/js/plugin/datatables/datatables.min.js"></script>
+    <!-- Kaiadmin JS -->
+    <script src="Admin/assets/js/kaiadmin.min.js"></script>
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="Admin/assets/js/setting-demo2.js"></script>
+    <script>
+    
+    function updateUser() {
+        var formData = $('#updateUserForm').serialize(); // Serialize form data
+
+        $.ajax({
+            url: '/users/update',
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                // Optionally update the page or redirect
+                window.location.href = '/data'; // Redirect to data.html
+            },
+            error: function() {
+                alert('Error updating user!');
+            }
+        });
+    }
+
+    
+      $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 5,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+      });
+    </script>
+    <script>
+    function logout() {
+        localStorage.removeItem('authToken'); 
+        window.location.href = 'index'; 
+    }
+</script>
+  </body>
+</html>

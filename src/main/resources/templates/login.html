@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit4Life</title>
+    <link rel="icon" href="https://res.cloudinary.com/deup6t83x/image/upload/v1721236251/logo_pctu2u.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/sweetalert/dist/sweetalert.css">
+    <style>
+.container {
+    width: 80%;    
+    height: auto; /* Ensure auto height for flexibility */
+}
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        width: 70%;
+        flex-direction: column; /* Stack items vertically */
+    }
+    .login-link .logo .text {
+    margin-right: 8px; /* Adjust space between the icon and text */
+}
+
+
+
+.login-link p {
+    margin-top: 5px; /* Reduce space between paragraphs */
+    margin-bottom: 4px; /* Reduce space between paragraphs */
+}
+a.loginbtn {
+    text-decoration: none;
+    color: #F4F5F8;
+    width: 40%;
+    font-weight: 300;
+    margin: 5% auto;
+    text-align: center;
+    background-color: #FB5B21;
+   border-radius: 24px;
+    padding: 10px 0; /* Adjust padding for proper height and centering */
+    display: inline-block;
+    line-height: normal; /* Ensures the text is centered vertically */
+    margin-top: 0; /* Fixes button placement */
+    margin-bottom: 0; /* Adjusts any extra margin under the button */
+}
+.login-form-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%; /* Adjust to fill available width */
+    margin-top:-40px;
+}
+
+.big-heading{
+ font-size:25px;
+ 
+}
+
+    .login-link, 
+    .signup-form-container {
+        width: 100%;
+    }
+    .text{
+    padding-top:30px;
+    font-size:30px;
+    }
+
+    .text-fields {
+        width: 100%;
+    }
+
+    .progress-bar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .progress-bar .stage {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .nextPage, 
+.previousPage {
+    width: 20%; 
+    padding: 10px; 
+    height: auto; 
+    margin-top: -20px; 
+    margin-bottom: 30px; 
+    background-color: #fa855b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right:30px;
+}
+}
+
+@media (max-width: 900px) {
+    .container {
+        width: 95%;
+    }
+    
+    
+
+    .login-link, 
+    .signup-form-container {
+        width: 100%;
+    }
+
+    .text-fields {
+        width: 100%;
+        margin: 1% 0;
+    }
+
+   .previousPage {
+    width: 20%; /* Ensure button fits within the form */
+    padding: 10px; /* Add padding for better spacing */
+    height: auto; /* Auto height to fit content */
+    margin-top: -20px; /* Adjust spacing from elements above */
+    margin-bottom: 30px; /* Spacing from elements below */
+    background-color: #fa855b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right:30px;
+}}
+
+@media (max-width: 600px) {
+    body {
+        background-image: none;
+        background-color: #F4F5F8;
+    }
+     .login-link, 
+    .signup-form-container {
+        width: 100%;
+    }
+    
+    .big-heading{
+    font-size:20px;
+    }
+
+    .container {
+        width: 100%;
+        margin-top:30px;
+    }
+    .login-link .logo .text {
+    margin-right: 8px; /* Adjust space between the icon and text */
+}
+
+.login-link p {
+    margin-top: 10px; /* Reduce space between paragraphs */
+    margin-bottom: 5px; /* Reduce space between paragraphs */
+}
+    
+
+    .login-link,
+    .signup-form-container {
+        width: 100%;
+    }
+
+    .text-fields {
+        width: 100%;
+    }
+
+    .progress-bar {
+        flex-direction: column;
+    }
+    
+    .login-form-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Adjust to fill available width */
+    margin-top:-40px;
+}
+
+     .nextPage, 
+.previousPage {
+    width: 30%; /* Ensure button fits within the form */
+    padding: 10px; /* Add padding for better spacing */
+    height: auto; /* Auto height to fit content */
+    margin-top: -20px; /* Adjust spacing from elements above */
+    margin-bottom: 30px; /* Spacing from elements below */
+    background-color: #fa855b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right:30px;
+}
+.side-big-hedaing{
+ font-size:25px;
+}
+} 
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="close-button" onclick="redirectToIndex()">×</div>
+        <div class="login-link">
+            <div class="logo">
+                <i class='bx bx-pencil'></i>
+                <span class="text">Fit4Life</span>
+            </div>
+            
+            <p class="side-big-hedaing">Create your Account</p>
+            <p class="primary-bg-text">To keep track of your dashboard, please login with your personal info.</p>
+            <a href="signup" class="loginbtn">Register now</a>
+        </div>
+        <form id="loginForm" action="/login" method="post" class="signup-form-container">
+            <p class="big-heading">Login to your account</p>
+            <br><br><br>
+            <div class="login-form-contents">
+                <div class="text-fields email">
+                    <label for="email"><i class='bx bx-envelope'></i></label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email id">
+                </div>
+                <div class="text-fields password">
+                    <label for="password"><i class='bx bx-lock-alt'></i></label>
+                    <input type="password" name="password" id="password" placeholder="Enter password">
+                    <i class='bx bx-hide password-toggle' id="togglePassword"></i>
+                </div>
+                <center>
+                <a href="forgot" class="forgot-password">Forgot Password?</a></center>
+                
+                <br>
+            </div>
+            
+            <input type="submit" value="Login"  class="nextPage">
+            <input type="hidden" id="status" value="${status}">
+        </form>
+    </div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+<script type="text/javascript">
+    // Get the redirect URL parameter from the current URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirect = urlParams.get('redirect');
+
+    // Modify the form action to include the redirect URL as a parameter if it exists
+    const loginForm = document.getElementById('loginForm');
+    if (redirect) {
+        loginForm.action = `/login?redirect=${encodeURIComponent(redirect)}`;
+    }
+
+    var status = document.getElementById("status").value;
+    if (status === "failed") {
+        swal("Sorry", "Wrong Username and Password", "error");
+    }
+
+    function redirectToIndex() {
+        window.location.href = 'index';
+    }
+
+    // Toggle password visibility
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function () {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        this.classList.toggle('bx-show');
+        this.classList.toggle('bx-hide');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Chart Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+     body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-image: url('https://res.cloudinary.com/deup6t83x/image/upload/v1721285969/banner_dov2e4.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: center; 
+    height: 100vh;
+    margin: 0; /* Reset default margin */
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 50px;
+}
+
+/* Form Card Styles */
+.form-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+.result-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+	 margin-left:-250px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    width: 1000px;
+}
+
+.form-card:hover, .result-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card Header Styles */
+.card-header {
+    background-color: #FB5B21;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #FB5B21;
+    border: none;
+    color: white; /* Ensure text is white for better visibility */
+    padding: 10px 15px; /* Added padding for better click area */
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.btn-primary:hover {
+    background-color: #D9481F;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: white; /* Ensure text is white for better visibility */
+    padding: 10px 15px; /* Added padding for better click area */
+    border-radius: 5px; /* Rounded corners for buttons */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+/* Table Styles */
+.table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%; /* Ensure full width */
+    max-width: 1000px; /* Optional: Set a maximum width for larger screens */
+    overflow-x: auto; /* Add horizontal scrolling if needed */
+}
+
+.table th, .table td {
+    border: 1px solid #dee2e6;
+    padding: 8px; /* Reduced padding for less height */
+    text-align: center;
+    transition: background-color 0.3s;
+    font-size: 0.9rem; /* Reduced font size for a more compact look */
+    min-height: 40px; /* Set a minimum height for rows */
+}
+
+.table th {
+    background-color: #FB5B21;
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: rgba(251, 91, 33, 0.1);
+}
+@media (max-width: 768px) {
+    .container {
+        margin-top: 20px; /* Adjust margin for smaller screens */
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Full width buttons on mobile */
+        margin-bottom: 10px; /* Space between buttons */
+    }
+
+    .form-card, .result-card {
+        padding: 15px; /* Reduced padding for smaller screens */
+    }
+}
+
+/* Media Queries for Tablets (<= 768px) */
+@media (max-width: 768px) {
+    .result-card {
+        padding: 15px; /* Reduced padding for tablets */
+        width: 100%; /* Take full width of the screen */
+        margin-left: auto; /* Reset negative margin */
+        margin-right: auto;
+    }
+
+    .card-header {
+        font-size: 22px; /* Slightly smaller header font size on tablets */
+        padding: 8px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Buttons take full width on tablet */
+        margin-bottom: 10px; /* Add space between buttons */
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+}
+
+/* Media Queries for Mobile (<= 600px) */
+@media (max-width: 600px) {
+    .result-card {
+        padding: 10px; /* Further reduce padding for mobile */
+        width: 100%; /* Ensure the card is fully responsive on mobile */
+        background-color: none; /* Remove background color for screens <= 600px */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .card-header {
+        font-size: 20px; /* Smaller header font size on mobile */
+        padding: 5px;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 12px 15px; /* Adjust padding for mobile */
+        font-size: 0.85rem; /* Even smaller font size for mobile */
+        width: 100%; /* Full-width buttons on mobile */
+    }
+}
+
+/* Media Queries for Smaller Mobile Devices (320px - 501px) */
+@media (max-width: 501px) {
+    .result-card {
+        padding: 8px; /* Reduce padding further for small mobile devices */
+        width: 100%; /* Ensure the card is fully responsive on small mobile */
+        background-color: none; /* No background color */
+        box-shadow: none; /* Remove shadow effect */
+    }
+
+    .card-header {
+        font-size: 18px; /* Smaller header font size for small screens */
+        padding: 4px;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 10px 12px; /* Adjust button padding for smaller mobile */
+        font-size: 0.8rem; /* Smaller font size for buttons */
+        width: 100%; /* Full-width buttons */
+    }
+}
+
+.close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: grey;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="formSection">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-card">
+                <div class="close-button" onclick="redirectToIndex()">×</div>
+                    <h1 class="text-center mb-4">Diet Chart Generator</h1>
+                    <div class="card-header text-center">Fill Your Details</div>
+                    <div class="card-body">
+                        <form id="dietForm">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="ageGroup" class="form-label">Age Group</label>
+                                    <select class="form-select" id="ageGroup" required>
+                                        <option value="" disabled selected>Select Age Group</option>
+                                        <option value="18-30">18-30</option>
+                                        <option value="31-50">31-50</option>
+                                        <option value="51-70">51-70</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="weight" class="form-label">Weight (kg)</label>
+                                    <input type="number" class="form-control" id="weight" placeholder="Enter your weight" required>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="height" class="form-label">Height (cm)</label>
+                                    <input type="number" class="form-control" id="height" placeholder="Enter your height" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="fitnessGoal" class="form-label">Fitness Goal</label>
+                                    <select class="form-select" id="fitnessGoal" required>
+                                        <option value="" disabled selected>Select Goal</option>
+                                        <option value="weight-loss">Weight Loss</option>
+                                        <option value="muscle-gain">Muscle Gain</option>
+                                        <option value="maintenance">Maintenance</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="dietType" class="form-label">Diet Type</label>
+                                    <select class="form-select" id="dietType" required>
+                                        <option value="" disabled selected>Select Diet Type</option>
+                                        <option value="veg">Vegetarian</option>
+                                        <option value="non-veg">Non-Vegetarian</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cuisine" class="form-label">Cuisine</label>
+                                    <select class="form-select" id="cuisine" required>
+                                        <option value="" disabled selected>Select Cuisine</option>
+                                        <option value="indian">Indian</option>
+                                        <option value="western">Western</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="d-grid">
+                                <button type="button" class="btn btn-primary" onclick="generateDietChart()">Generate Diet Chart</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="resultSection" class="d-none">
+        <div class="row mt-4">
+            <div class="col-md-8 offset-md-2">
+                <div id="dietSuggestions" class="result-card">
+                    <div class="card-header">Your Weekly Diet Chart</div>
+                    <div class="card-body">
+                        <p id="dietDetails"></p>
+                        <div class="d-flex justify-content-between mt-3">
+                            <button class="btn btn-primary" onclick="downloadPDF()">Download Diet Chart</button>
+                            <button class="btn btn-secondary" onclick="showForm()">Go Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        const dietCharts = {
+            'indian': {
+                'veg': {
+                    'weight-loss': [
+                        { day: 'Monday', breakfast: 'Moong Dal Chilla with Green Chutney', lunch: 'Palak Paneer with a small portion of Brown Rice', dinner: 'Vegetable Soup with a side of Cucumber Salad' },
+                        { day: 'Tuesday', breakfast: 'Overnight Oats with Chia Seeds and Fruits', lunch: 'Mixed Vegetable Curry with Whole Wheat Roti', dinner: 'Cauliflower Rice with a side of Roasted Veggies' },
+                        { day: 'Wednesday', breakfast: 'Poha with Mixed Vegetables', lunch: 'Chole with a side of Cabbage Salad', dinner: 'Grilled Vegetables with Hummus' },
+                        { day: 'Thursday', breakfast: 'Greek Yogurt with Fresh Fruits', lunch: 'Rajma with a side of Spinach Salad', dinner: 'Lentil Soup with a side of Mixed Vegetables' },
+                        { day: 'Friday', breakfast: 'Smoothie with Spinach, Banana, and Almond Milk', lunch: 'Vegetable Korma with a side of Brown Rice', dinner: 'Grilled Paneer with a side of Stir-fried Vegetables' },
+                        { day: 'Saturday', breakfast: 'Idli with Sambhar', lunch: 'Baingan Bharta with Whole Wheat Roti', dinner: 'Palak Dal with a side of Mixed Vegetables' },
+                        { day: 'Sunday', breakfast: 'Besan Cheela with a side of Mint Chutney', lunch: 'Vegetable Biryani with a side of Raita', dinner: 'Grilled Tofu with a side of Stir-fried Veggies' }
+                    ],
+                    'muscle-gain': [
+                        { day: 'Monday', breakfast: 'Protein Smoothie with Almonds and Berries', lunch: 'Paneer Tikka with a side of Quinoa', dinner: 'Dal Makhani with a side of Brown Rice' },
+                        { day: 'Tuesday', breakfast: 'Vegetable Omelette with Whole Wheat Toast', lunch: 'Mixed Bean Salad with a side of Yogurt', dinner: 'Methi Thepla with a side of Paneer' },
+                        { day: 'Wednesday', breakfast: 'Smoothie Bowl with Chia Seeds and Nuts', lunch: 'Chana Masala with a small portion of Brown Rice', dinner: 'Grilled Tofu with a side of Quinoa' },
+                        { day: 'Thursday', breakfast: 'Greek Yogurt with Granola', lunch: 'Rajma with a side of Spinach Salad', dinner: 'Chana Dal with a side of Mixed Vegetables' },
+                        { day: 'Friday', breakfast: 'Cottage Cheese Pancakes with Fruit', lunch: 'Palak Paneer with a side of Whole Wheat Roti', dinner: 'Mixed Lentil Soup with a side of Roasted Vegetables' },
+                        { day: 'Saturday', breakfast: 'Whole Wheat Paratha with Paneer', lunch: 'Grilled Vegetables with a side of Brown Rice', dinner: 'Rajma with a side of Mixed Greens' },
+                        { day: 'Sunday', breakfast: 'Overnight Oats with Nuts and Fruits', lunch: 'Vegetable Biryani with a side of Yogurt', dinner: 'Palak Dal with a side of Stir-fried Vegetables' }
+                    ],
+                    'maintenance': [
+                        { day: 'Monday', breakfast: 'Upma with a side of Fresh Fruits', lunch: 'Vegetable Korma with Brown Rice', dinner: 'Mixed Vegetable Curry with Whole Wheat Roti' },
+                        { day: 'Tuesday', breakfast: 'Paratha with Curd', lunch: 'Dal Tadka with a side of Cucumber Salad', dinner: 'Grilled Paneer with Steamed Vegetables' },
+                        { day: 'Wednesday', breakfast: 'Moong Dal Chilla with Green Chutney', lunch: 'Rajma with a side of Brown Rice', dinner: 'Mixed Vegetable Curry with Roti' },
+                        { day: 'Thursday', breakfast: 'Poha with Mixed Vegetables', lunch: 'Paneer Bhurji with a side of Whole Wheat Roti', dinner: 'Grilled Tofu with Mixed Veggies' },
+                        { day: 'Friday', breakfast: 'Greek Yogurt with Fresh Fruits', lunch: 'Mixed Dal with a side of Rice', dinner: 'Stir-fried Vegetables with a side of Quinoa' },
+                        { day: 'Saturday', breakfast: 'Smoothie with Spinach and Almond Milk', lunch: 'Mixed Bean Salad with Roti', dinner: 'Grilled Vegetables with Paneer' },
+                        { day: 'Sunday', breakfast: 'Idli with Sambhar', lunch: 'Vegetable Biryani with Raita', dinner: 'Mixed Dal with a side of Roti' }
+                    ]
+                },
+                'non-veg': {
+                    'weight-loss': [
+                        { day: 'Monday', breakfast: 'Boiled Eggs with a side of Fruit', lunch: 'Grilled Chicken with Steamed Vegetables', dinner: 'Fish Curry with a side of Brown Rice' },
+                        { day: 'Tuesday', breakfast: 'Oats with Almond Milk and Berries', lunch: 'Chicken Salad with a side of Whole Wheat Toast', dinner: 'Grilled Fish with Steamed Vegetables' },
+                        { day: 'Wednesday', breakfast: 'Smoothie with Spinach, Banana, and Almond Milk', lunch: 'Grilled Chicken with a side of Brown Rice', dinner: 'Fish Tikka with a side of Mixed Vegetables' },
+                        { day: 'Thursday', breakfast: 'Boiled Eggs with Whole Wheat Toast', lunch: 'Chicken Curry with a side of Brown Rice', dinner: 'Grilled Fish with a side of Stir-fried Vegetables' },
+                        { day: 'Friday', breakfast: 'Greek Yogurt with Granola', lunch: 'Grilled Chicken with a side of Quinoa', dinner: 'Baked Fish with a side of Steamed Vegetables' },
+                        { day: 'Saturday', breakfast: 'Protein Smoothie with Berries and Nuts', lunch: 'Fish Curry with a side of Brown Rice', dinner: 'Grilled Chicken with Mixed Vegetables' },
+                        { day: 'Sunday', breakfast: 'Boiled Eggs with a side of Toast', lunch: 'Chicken Salad with a side of Roti', dinner: 'Grilled Fish with a side of Steamed Veggies' }
+                    ],
+                    'muscle-gain': [
+                        { day: 'Monday', breakfast: 'Protein Smoothie with Eggs and Nuts', lunch: 'Chicken Curry with a side of Quinoa', dinner: 'Grilled Fish with Brown Rice' },
+                        { day: 'Tuesday', breakfast: 'Omelette with Whole Wheat Toast', lunch: 'Grilled Chicken with a side of Vegetables', dinner: 'Baked Fish with a side of Quinoa' },
+                        { day: 'Wednesday', breakfast: 'Greek Yogurt with Nuts and Berries', lunch: 'Chicken Salad with a side of Brown Rice', dinner: 'Fish Curry with Steamed Vegetables' },
+                        { day: 'Thursday', breakfast: 'Boiled Eggs with Whole Wheat Toast', lunch: 'Chicken Curry with a side of Brown Rice', dinner: 'Grilled Fish with Quinoa' },
+                        { day: 'Friday', breakfast: 'Smoothie with Spinach, Banana, and Almond Milk', lunch: 'Grilled Chicken with a side of Quinoa', dinner: 'Fish Tikka with Steamed Vegetables' },
+                        { day: 'Saturday', breakfast: 'Protein Smoothie with Nuts and Seeds', lunch: 'Fish Curry with a side of Brown Rice', dinner: 'Grilled Chicken with Stir-fried Veggies' },
+                        { day: 'Sunday', breakfast: 'Omelette with Whole Wheat Toast', lunch: 'Grilled Chicken with Steamed Vegetables', dinner: 'Fish Curry with a side of Brown Rice' }
+                    ],
+                    'maintenance': [
+                        { day: 'Monday', breakfast: 'Boiled Eggs with a side of Fruit', lunch: 'Grilled Chicken with Brown Rice', dinner: 'Fish Curry with Steamed Vegetables' },
+                        { day: 'Tuesday', breakfast: 'Oats with Almond Milk and Berries', lunch: 'Chicken Salad with Whole Wheat Toast', dinner: 'Grilled Fish with Steamed Vegetables' },
+                        { day: 'Wednesday', breakfast: 'Smoothie with Spinach and Almond Milk', lunch: 'Grilled Chicken with Brown Rice', dinner: 'Fish Tikka with Mixed Vegetables' },
+                        { day: 'Thursday', breakfast: 'Boiled Eggs with Whole Wheat Toast', lunch: 'Chicken Curry with Brown Rice', dinner: 'Grilled Fish with Stir-fried Veggies' },
+                        { day: 'Friday', breakfast: 'Greek Yogurt with Granola', lunch: 'Grilled Chicken with Quinoa', dinner: 'Baked Fish with Steamed Vegetables' },
+                        { day: 'Saturday', breakfast: 'Protein Smoothie with Berries and Nuts', lunch: 'Fish Curry with Brown Rice', dinner: 'Grilled Chicken with Stir-fried Vegetables' },
+                        { day: 'Sunday', breakfast: 'Boiled Eggs with a side of Toast', lunch: 'Chicken Salad with Roti', dinner: 'Grilled Fish with Steamed Vegetables' }
+                    ]
+                }
+            },
+            'western': {
+                'veg': {
+                    'weight-loss': [
+                        { day: 'Monday', breakfast: 'Smoothie with Kale, Banana, and Almond Milk', lunch: 'Quinoa Salad with a side of Grilled Tofu', dinner: 'Vegetable Stir-fry with Brown Rice' },
+                        { day: 'Tuesday', breakfast: 'Overnight Oats with Chia Seeds and Almonds', lunch: 'Vegetable Wrap with a side of Greek Yogurt', dinner: 'Grilled Vegetables with Quinoa' },
+                        { day: 'Wednesday', breakfast: 'Avocado Toast with a side of Fruit', lunch: 'Lentil Soup with a side of Whole Grain Bread', dinner: 'Vegetable Stir-fry with Tofu' },
+                        { day: 'Thursday', breakfast: 'Smoothie Bowl with Berries and Nuts', lunch: 'Vegetable Salad with a side of Hummus', dinner: 'Grilled Tofu with a side of Quinoa' },
+                        { day: 'Friday', breakfast: 'Greek Yogurt with Granola and Berries', lunch: 'Chickpea Salad with a side of Whole Grain Bread', dinner: 'Grilled Vegetables with Brown Rice' },
+                        { day: 'Saturday', breakfast: 'Smoothie with Spinach, Banana, and Almond Milk', lunch: 'Quinoa Salad with a side of Grilled Tofu', dinner: 'Vegetable Stir-fry with Tofu' },
+                        { day: 'Sunday', breakfast: 'Overnight Oats with Chia Seeds and Almonds', lunch: 'Vegetable Wrap with a side of Greek Yogurt', dinner: 'Grilled Vegetables with Quinoa' }
+                    ],
+                    'muscle-gain': [
+                        { day: 'Monday', breakfast: 'Protein Smoothie with Kale and Almonds', lunch: 'Grilled Tofu with Quinoa', dinner: 'Vegetable Stir-fry with Tofu' },
+                        { day: 'Tuesday', breakfast: 'Avocado Toast with Whole Grain Bread', lunch: 'Lentil Soup with a side of Brown Rice', dinner: 'Grilled Vegetables with Tofu' },
+                        { day: 'Wednesday', breakfast: 'Greek Yogurt with Granola and Berries', lunch: 'Quinoa Salad with a side of Hummus', dinner: 'Vegetable Stir-fry with Tofu' },
+                        { day: 'Thursday', breakfast: 'Smoothie with Spinach, Banana, and Almond Milk', lunch: 'Grilled Tofu with Quinoa', dinner: 'Vegetable Stir-fry with Brown Rice' },
+                        { day: 'Friday', breakfast: 'Greek Yogurt with Nuts and Seeds', lunch: 'Chickpea Salad with a side of Whole Grain Bread', dinner: 'Grilled Vegetables with Quinoa' },
+                        { day: 'Saturday', breakfast: 'Smoothie Bowl with Berries and Nuts', lunch: 'Vegetable Wrap with a side of Greek Yogurt', dinner: 'Grilled Tofu with Quinoa' },
+                        { day: 'Sunday', breakfast: 'Overnight Oats with Chia Seeds and Almonds', lunch: 'Lentil Soup with a side of Whole Grain Bread', dinner: 'Vegetable Stir-fry with Tofu' }
+                    ],
+                    'maintenance': [
+                        { day: 'Monday', breakfast: 'Smoothie with Kale, Banana, and Almond Milk', lunch: 'Quinoa Salad with Grilled Vegetables', dinner: 'Vegetable Stir-fry with Brown Rice' },
+                        { day: 'Tuesday', breakfast: 'Overnight Oats with Chia Seeds and Nuts', lunch: 'Vegetable Wrap with a side of Greek Yogurt', dinner: 'Grilled Vegetables with Quinoa' },
+                        { day: 'Wednesday', breakfast: 'Avocado Toast with Whole Grain Bread', lunch: 'Lentil Soup with a side of Brown Rice', dinner: 'Vegetable Stir-fry with Tofu' },
+                        { day: 'Thursday', breakfast: 'Smoothie Bowl with Berries and Nuts', lunch: 'Vegetable Salad with Hummus', dinner: 'Grilled Tofu with Quinoa' },
+                        { day: 'Friday', breakfast: 'Greek Yogurt with Granola and Berries', lunch: 'Chickpea Salad with a side of Whole Grain Bread', dinner: 'Grilled Vegetables with Brown Rice' },
+                        { day: 'Saturday', breakfast: 'Smoothie with Spinach, Banana, and Almond Milk', lunch: 'Quinoa Salad with Grilled Vegetables', dinner: 'Vegetable Stir-fry with Tofu' },
+                        { day: 'Sunday', breakfast: 'Overnight Oats with Chia Seeds and Almonds', lunch: 'Vegetable Wrap with a side of Greek Yogurt', dinner: 'Grilled Vegetables with Quinoa' }
+                    ]
+                },
+                'non-veg': {
+                    'weight-loss': [
+                        { day: 'Monday', breakfast: 'Boiled Eggs with a side of Avocado', lunch: 'Grilled Chicken with Quinoa', dinner: 'Baked Salmon with Steamed Vegetables' },
+                        { day: 'Tuesday', breakfast: 'Smoothie with Spinach, Banana, and Almond Milk', lunch: 'Chicken Salad with a side of Whole Grain Bread', dinner: 'Grilled Fish with a side of Quinoa' },
+                        { day: 'Wednesday', breakfast: 'Greek Yogurt with Nuts and Berries', lunch: 'Chicken Wrap with a side of Greek Yogurt', dinner: 'Baked Salmon with Steamed Vegetables' },
+                        { day: 'Thursday', breakfast: 'Boiled Eggs with a side of Whole Grain Toast', lunch: 'Grilled Chicken with Quinoa', dinner: 'Grilled Fish with Steamed Vegetables' },
+                        { day: 'Friday', breakfast: 'Smoothie with Kale, Banana, and Almond Milk', lunch: 'Chicken Salad with a side of Whole Grain Bread', dinner: 'Baked Salmon with Steamed Vegetables' },
+                        { day: 'Saturday', breakfast: 'Protein Smoothie with Almonds and Berries', lunch: 'Chicken Wrap with a side of Greek Yogurt', dinner: 'Grilled Fish with Quinoa' },
+                        { day: 'Sunday', breakfast: 'Greek Yogurt with Nuts and Berries', lunch: 'Grilled Chicken with a side of Steamed Vegetables', dinner: 'Baked Salmon with Quinoa' }
+                    ],
+                    'muscle-gain': [
+                        { day: 'Monday', breakfast: 'Protein Smoothie with Kale and Almonds', lunch: 'Grilled Chicken with Quinoa', dinner: 'Baked Salmon with Steamed Vegetables' },
+                        { day: 'Tuesday', breakfast: 'Omelette with a side of Whole Grain Toast', lunch: 'Chicken Salad with a side of Greek Yogurt', dinner: 'Grilled Fish with Quinoa' },
+                        { day: 'Wednesday', breakfast: 'Greek Yogurt with Nuts and Berries', lunch: 'Chicken Wrap with a side of Greek Yogurt', dinner: 'Baked Salmon with Steamed Vegetables' },
+                        { day: 'Thursday', breakfast: 'Boiled Eggs with a side of Whole Grain Toast', lunch: 'Grilled Chicken with Quinoa', dinner: 'Grilled Fish with Steamed Vegetables' },
+                        { day: 'Friday', breakfast: 'Smoothie with Kale, Banana, and Almond Milk', lunch: 'Chicken Salad with a side of Whole Grain Bread', dinner: 'Baked Salmon with Quinoa' },
+                        { day: 'Saturday', breakfast: 'Protein Smoothie with Almonds and Berries', lunch: 'Chicken Wrap with a side of Greek Yogurt', dinner: 'Grilled Fish with Steamed Vegetables' },
+                        { day: 'Sunday', breakfast: 'Omelette with a side of Whole Grain Toast', lunch: 'Grilled Chicken with Quinoa', dinner: 'Baked Salmon with Steamed Vegetables' }
+                    ],
+                    'maintenance': [
+                        { day: 'Monday', breakfast: 'Boiled Eggs with a side of Avocado', lunch: 'Grilled Chicken with Quinoa', dinner: 'Baked Salmon with Steamed Vegetables' },
+                        { day: 'Tuesday', breakfast: 'Smoothie with Spinach, Banana, and Almond Milk', lunch: 'Chicken Salad with Whole Grain Bread', dinner: 'Grilled Fish with Steamed Vegetables' },
+                        { day: 'Wednesday', breakfast: 'Greek Yogurt with Nuts and Berries', lunch: 'Chicken Wrap with Greek Yogurt', dinner: 'Baked Salmon with Quinoa' },
+                        { day: 'Thursday', breakfast: 'Boiled Eggs with Whole Grain Toast', lunch: 'Grilled Chicken with Quinoa', dinner: 'Grilled Fish with Steamed Vegetables' },
+                        { day: 'Friday', breakfast: 'Smoothie with Kale, Banana, and Almond Milk', lunch: 'Chicken Salad with Whole Grain Bread', dinner: 'Baked Salmon with Steamed Vegetables' },
+                        { day: 'Saturday', breakfast: 'Protein Smoothie with Almonds and Berries', lunch: 'Chicken Wrap with Greek Yogurt', dinner: 'Grilled Fish with Quinoa' },
+                        { day: 'Sunday', breakfast: 'Omelette with Whole Grain Toast', lunch: 'Grilled Chicken with Steamed Vegetables', dinner: 'Baked Salmon with Quinoa' }
+                    ]
+                }
+            }
+        };
+    
+        function generateDietChart() {
+            const ageGroup = document.getElementById('ageGroup').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const fitnessGoal = document.getElementById('fitnessGoal').value;
+            const dietType = document.getElementById('dietType').value;
+            const cuisine = document.getElementById('cuisine').value;
+    
+            if (!ageGroup || !weight || !height || !fitnessGoal || !dietType || !cuisine) {
+                alert("Please fill in all fields.");
+                return;
+            }
+    
+            const dietPlan = dietCharts[cuisine][dietType][fitnessGoal];
+            if (dietPlan) {
+                let dietDetailsHtml = '<table class="table"><thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead><tbody>';
+                dietPlan.forEach(dayPlan => {
+                    dietDetailsHtml += `<tr>
+                        <td>${dayPlan.day}</td>
+                        <td>${dayPlan.breakfast}</td>
+                        <td>${dayPlan.lunch}</td>
+                        <td>${dayPlan.dinner}</td>
+                    </tr>`;
+                });
+                dietDetailsHtml += '</tbody></table>';
+    
+                document.getElementById('dietDetails').innerHTML = dietDetailsHtml;
+                showResult();
+            } else {
+                alert("No diet plan found for the selected options.");
+            }
+        }
+    
+        function showResult() {
+            document.getElementById('formSection').classList.add('d-none');
+            document.getElementById('resultSection').classList.remove('d-none');
+        }
+    
+        function showForm() {
+            document.getElementById('resultSection').classList.add('d-none');
+            document.getElementById('formSection').classList.remove('d-none');
+        }
+    
+        function downloadPDF() {
+            const element = document.getElementById('dietDetails');
+            html2pdf().from(element).save('diet-chart.pdf');
+        }
+        
+     // Function to redirect to index.html
+        function redirectToIndex() {
+            window.location.href = 'index';
+        }
+    </script>
+    
+
+    <!-- jsPDF and html2pdf Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+</body>
+</html>
